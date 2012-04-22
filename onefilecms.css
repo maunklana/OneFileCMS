@@ -39,9 +39,8 @@ div{position: relative;}
 
 h1,h2,h3,h4,h5,h6{font-weight: bold;}
 
-body { 	Xcolor: #0F0901;
+body {
 	font-size: 1em;
-	Xline-height: 1em;
 	background: #d5d0cc;
 	font-family: sans-serif;
 	}
@@ -52,10 +51,8 @@ body { 	Xcolor: #0F0901;
 .container {
 	border : 0px solid #807568;
 	width  : 810px;
-	Xpadding: 0 10px;
-	margin : 1em auto;
+	margin : 0 auto;
 	}
-
 
 
 .header {
@@ -66,7 +63,13 @@ body { 	Xcolor: #0F0901;
 	}
 
 
-#logo {font-family: 'Trebuchet MS', sans-serif; font-size:2.5em; font-weight: bold; color: black;}
+#logo {
+	font-family: 'Trebuchet MS', sans-serif;
+	font-size:2.2em;
+	font-weight: bold;
+	color: black;
+	padding: .1em;
+	}
 
 
 .footer {
@@ -95,9 +98,9 @@ a { border: 1px solid transparent; color: rgb(100,45,0); text-decoration: none; 
 
 a:hover {
 	border: 1px solid #807568;
-	Xcolor: #995400;
 	background-color: #fffbce;
-	} /* #995400 #976322 */
+	}
+
 
 h2 { font-size: 20px; }
 
@@ -155,7 +158,7 @@ pre {
 	font-family: Lucida Console, "Courier New" ;
 	font-size: .95em;
 	line-height: 1em;
-	background: #fff000 url("http://self-evident.github.com/OneFileCMS/images/silk_error.png") 10px 5px no-repeat;
+	background: #fff000;
 	}
 
 
@@ -176,15 +179,15 @@ pre {
 	padding: 7px 5px 7px 35px;
 	border: 1px solid #807568;
 	text-decoration: none;
-	background: white url("http://self-evident.github.com/OneFileCMS/images/silk_file.png") 10px 10px no-repeat;
+	background: white url("http://self-evident.github.com/OneFileCMS/images/file-2.png") 10px 10px no-repeat;
 	overflow: hidden;
 	line-height: 1em;
 	}
 
 
-.index a.css { background: white url("http://self-evident.github.com/OneFileCMS/images/silk_css.png") 10px 10px no-repeat; }
-.index a.php { background: white url("http://self-evident.github.com/OneFileCMS/images/silk_php.png") 10px 10px no-repeat; }
-.index a.img { background: white url("http://self-evident.github.com/OneFileCMS/images/silk_image.png") 10px 10px no-repeat; }
+.index a.css { background: white url("http://self-evident.github.com/OneFileCMS/images/file-2s.png") 10px 10px no-repeat; }
+.index a.img { background: white url("http://self-evident.github.com/OneFileCMS/images/img-2.png") 10px 10px no-repeat; }
+.index a.php { background: white url("http://self-evident.github.com/OneFileCMS/images/file-2p.png") 10px 10px no-repeat; }
 
 .index a:hover {
 	background-color: #fffbce;
@@ -282,6 +285,7 @@ table.index_T td {
 .index_folders a:hover { background-color: #fffbce; }
 
 
+/*  [Upload File] [New File] [New Folder] etc... */
 
 .front_links { clear: both; }
 
@@ -292,16 +296,16 @@ table.index_T td {
 	padding: 3px 5px 5px 21px; /*T R B L*/
 	height: 16px;
 	display: inline-block;
-}
+	}
 
-.front_links a.upload { background: url("http://self-evident.github.com/OneFileCMS/images/upload.png") 3px 3px no-repeat; }
-.front_links a.new { background: url("http://self-evident.github.com/_OneFileCMS/images/file-new-2.png") 3px 4px no-repeat; }
-.front_links a.newfolder { background: url("http://self-evident.github.com/OneFileCMS/images/folder-new-2.png") 2px 5px no-repeat; }
-.front_links a.renamefolder { background: url("http://self-evident.github.com/OneFileCMS/images/folder-rename.png") 1px 4px no-repeat; }
-.front_links a.deletefolder { background: url("http://self-evident.github.com/OneFileCMS/images/folder-del-3.png") 1px 5px no-repeat; }
-.front_links a.other { background: url("http://self-evident.github.com/OneFileCMS/images/silk_other2.png") 2px 3px no-repeat; }
-.front_links a.settings { background: url("http://self-evident.github.com/OneFileCMS/images/silk_settings.png") 2px 3px no-repeat; }
-.front_links a:hover { border: 1px solid #807568; background-color: #fffbce; }
+.front_links a.upload       { background: url("http://self-evident.github.com/OneFileCMS/images/upload.png") 3px      3px no-repeat; }
+.front_links a.new          { background: url("http://self-evident.github.com/OneFileCMS/images/file-new-2.png")      3px 4px no-repeat; }
+.front_links a.newfolder    { background: url("http://self-evident.github.com/OneFileCMS/images/folder-new-2.png")    2px 5px no-repeat; }
+.front_links a.renamefolder { background: url("http://self-evident.github.com/OneFileCMS/images/folder-rename-1.png") 1px 4px no-repeat; }
+.front_links a.deletefolder { background: url("http://self-evident.github.com/OneFileCMS/images/folder-del-3.png")    1px 5px no-repeat; }
+.front_links a.settings     { background: url("http://self-evident.github.com/OneFileCMS/images/settings.png")        2px 3px no-repeat; }
+
+.front_links a:hover        { border: 1px solid #807568; background-color: #fffbce; }
 
 form .meta { z-index: -1; }
 
@@ -310,7 +314,7 @@ form .meta { z-index: -1; }
 	padding: 2px;
 	width: 650px;
 	font: 1em "Courier New", Courier, monospace;
-}
+	}
 
 textarea.textinput {
 	font  : 1em "Courier New", Courier, monospace;
@@ -334,11 +338,10 @@ textarea.disabled { height: 50px; }
 	cursor: pointer;
 	font-size: 14px;
 	font-family: sans-serif;
-}
+	}
 
 .button:hover { background-color: #eaeaea; }
 .button[disabled]:hover { background-color: #d4d4d4; }
-
 
 
 #action {color: white; background-color: rgb(235,70,70); font-weight: 700;}
@@ -364,6 +367,7 @@ textarea.disabled { height: 50px; }
 	}
 
 .nav a:hover {border: 01px solid #807568;}
+
 
 h1 a {
 	font-size: 28px;
@@ -431,9 +435,3 @@ hr {
 	Xborder-bottom: 1px solid #eee;
 	overflow: visible;
 	}
-
-
-
-#testing {
-	border: 1px solid black;
-}
