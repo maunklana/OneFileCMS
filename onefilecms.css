@@ -196,6 +196,7 @@ pre {
 .index a.css { background:white url("http://self-evident.github.com/OneFileCMS/images/file-css.png") 3px no-repeat; }
 .index a.htm { background:white url("http://self-evident.github.com/OneFileCMS/images/file-htm.png") 3px no-repeat; }
 .index a.php { background:white url("http://self-evident.github.com/OneFileCMS/images/file-php.png") 3px no-repeat; }
+.index a.svg { background:white url("http://self-evident.github.com/OneFileCMS/images/file-svg.png") 3px no-repeat; }
 
 .index a:hover { background-color: rgb(255,250,150); }
 .index a:focus { background-color: rgb(255,250,150); }
@@ -242,7 +243,7 @@ table.index_T td {
 .index_T a.cfg { background: url("http://self-evident.github.com/OneFileCMS/images/file-cfg.png") 3px no-repeat; }
 .index_T a.img { background: url("http://self-evident.github.com/OneFileCMS/images/file-img.png") 3px no-repeat; }
 .index_T a.bin { background: url("http://self-evident.github.com/OneFileCMS/images/file-bin.png") 3px no-repeat; }
-
+.index_T a.svg { background: url("http://self-evident.github.com/OneFileCMS/images/file-svg.png") 3px no-repeat; }
 .index_T a:hover { background-color: rgb(255,250,150); }
 .index_T a:focus { background-color: rgb(255,250,150); }
 
