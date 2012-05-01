@@ -1,5 +1,5 @@
 /* OneFileCMS - http://onefilecms.com/
- * Version 1.2.1
+ * Version 1.2.2
  * For license & copyright info, see OneFileCMS.License.BSD.txt 
  */ 
 
@@ -352,22 +352,22 @@ input:focus { background-color: rgb(255,250,150); }
 input:hover { background-color: rgb(255,250,150); }
 
 
-.buttons_right { float: right;}
+.buttons_right         { float: right;}
 .buttons_right .button { margin-left: 7px; }
-.buttons_left { float: left;}
-.buttons_left .button { margin-right: 7px; }
+.buttons_left          { float: left;}
+.buttons_left  .button { margin-right: 7px; }
 
 .button {
 	border: 1px solid #807568;
 	padding: 4px 10px;
 	background-color: #d4d4d4;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: .9em;
 	font-family: sans-serif;
 	}
 
 .Xbutton:hover { background-color: rgb(255,250,150); } 
-.button[disabled]:hover { background-color: #d4d4d4; }
+.button[disabled]:hover { background-color: #d4d4d4; cursor:default}
 
 /*
 #Xsave_file         { border: 1px solid red; }
