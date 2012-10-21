@@ -1,0 +1,394 @@
+<h1>OneFileCMS Change Log</h1>
+
+<h3>3.4.12 (2012-10-21)</h3>
+
+<ul>
+<li>On the Upload Page, added an option to select either automatic rename or overwrite of pre-existing files.</li>
+</ul>
+
+<h3>3.4.11 (2012-10-16)</h3>
+
+<ul>
+<li>Just a few code tweaks and improvements.</li>
+</ul>
+
+<h3>3.4.10 (2012-10-08)</h3>
+
+<ul>
+<li>Quite of bit of code consolidation and improvement.</li>
+<li>Converted svg icons from functions into an array of $ICONS[]</li>
+<li>Folders are now listed ahead of files in main file list.</li>
+</ul>
+
+<h3>3.4.09</h3>
+
+<ul>
+<li>Option to copy folders.</li>
+<li>Consolidated some functions.</li>
+<li>Removed some svg icons no longer used.</li>
+<li>The usual "code cleanup" and "tweaked some css"...</li>
+</ul>
+
+<h3>3.4.07</h3>
+
+<ul>
+<li>Can now delete non-empty folders (just be careful!)</li>
+<li>Consolidated some functions.</li>
+<li>Minor bug fix &amp; a few misc code improvements.</li>
+<li>Darkened folder icons.</li>
+<li>Removed &amp; changed a few $_[] language strings. </li>
+</ul>
+
+<h3>3.4.06</h3>
+
+<ul>
+<li>Minor bug fix: Index page would not display folders that started with a period ("hidden" folders on *nix)</li>
+</ul>
+
+<h3>3.4.05</h3>
+
+<ul>
+<li>Consolidated index page radio &amp; submit buttons (for Move, Copy, Delete) into just three standard buttons.</li>
+<li>Added multi-file upload ability.</li>
+<li>Index page: removed extra Upload/New/Rename/Delete buttons from  bottom of page.</li>
+<li>Subsequent to the above, a bit of code cleanup &amp; improvement.</li>
+</ul>
+
+<h3>3.4.04</h3>
+
+<ul>
+<li>Minor bug fix.</li>
+</ul>
+
+<h3>3.4.02-3.4.03</h3>
+
+<ul>
+<li>Primary user noticable change: on rename/move/copy pages, split "New Name" from "New Location".</li>
+<li>A couple minor bug fixes.</li>
+<li>Consolidated four functions into two.</li>
+<li>Other general code cleanup &amp; improvements.</li>
+<li>Numerous new, changed, and removed langauge settings.</li>
+</ul>
+
+<h3>3.4.01</h3>
+
+<ul>
+<li>A couple of minor bug fixes.</li>
+<li>Some code cleanup &amp; improvements.</li>
+</ul>
+
+<h3>3.3.17 - 3.4.0 (2012-08-29)</h3>
+
+<ul>
+<li>Added option to select and move, copy, or delete multiple files.</li>
+<li>And other general code tweaks and improvements.</li>
+</ul>
+
+<h3>3.3.11 - 3.3.16</h3>
+
+<ul>
+<li>Added screens for changing username and password.</li>
+<li>Plaintext $PASSWORD option is no longer available.</li>
+<li>Added options to Rename, Copy, or Delete files from Index screen.</li>
+<li>Improved validation of $_GET parameters &amp; other general code improvements.</li>
+</ul>
+
+<h3>3.3.10</h3>
+
+<ul>
+<li>Created an actual "Admin" page that has links to admin functions: Hash Page, Edit OneFileCMS, and (soon) Change Password.</li>
+</ul>
+
+<h3>3.3.09</h3>
+
+<ul>
+<li>Minor code improvements &amp; cleanup.</li>
+</ul>
+
+<h3>3.3.08</h3>
+
+<ul>
+<li>Added some basic error handling and now using buffering to capture errant early output.</li>
+<li>Seperate function to handle dynamic css values.</li>
+</ul>
+
+<h3>3.3.07</h3>
+
+<ul>
+<li>Language file formats are now php instead of ini.</li>
+<li>Minor improvement to version checking.</li>
+</ul>
+
+<h3>3.3.06</h3>
+
+<ul>
+<li>Increased hash iterations from 1000 to 10000.  (I've read that lots of iterations help slow down brute force p/w recovery)</li>
+<li>Format for external config files is now just php (instead of ini).</li>
+<li>Some miscellaneous code &amp; css improvements.</li>
+</ul>
+
+<h3>3.3.05a</h3>
+
+<ul>
+<li>Just removed some trouble-shooting code that was left in unintentionally.</li>
+</ul>
+
+<h3>3.3.05</h3>
+
+<ul>
+<li>Added a few settings to the language files to adjust certain css values if needed.  In some instances, some langauges may use significantly longer words or phrases than others.  So, a smaller font or less spacing may be desirable in those places to preserve page layout.   </li>
+<li>And, of course, some minor code improvements hear and there.</li>
+</ul>
+
+<h3>3.3.04</h3>
+
+<ul>
+<li>Added Spanish language file courtesy of <a href="https//github.com/fermuch">fermuch</a>.</li>
+<li>Some misc code improvements.</li>
+<li>Added notes regarding using .ini file for password storage.</li>
+</ul>
+
+<h3>3.3.03</h3>
+
+<ul>
+<li>"Wide View" option on Edit page now persists across saves.</li>
+<li>Improved handling of language files.  However, kinda' like "online security", "multi-language support" is nebulous and a bit finicky.</li>
+</ul>
+
+<h3>3.3.02</h3>
+
+<ul>
+<li>Added German language file courtesy of <a href="http://github.com/codeless">codeless</a>.</li>
+</ul>
+
+<h3>3.3.01</h3>
+
+<ul>
+<li>Fixed a "minor" issue after adding multi-language support- OneFileCMS stopped working altogether on versions of PHP &lt; 5.3.</li>
+</ul>
+
+<h3>3.3.0</h3>
+
+<ul>
+<li>Added support for optional external language files.   Now to get some translations...  </li>
+<li>The default, English, is included directly in OneFileCMS, of course.</li>
+<li>A sample language file (English) is included in the repo for reference for anyone that may be interested.</li>
+</ul>
+
+<h3>3.2.3</h3>
+
+<ul>
+<li>Thanks to github.com/codeless: added the ability to process a seperate config file. <br />
+(This is just an option for flexibility, and is not required)</li>
+<li>Added a [Wide View] button to Edit page.</li>
+<li>Some minor code improvement &amp; css tweaking.</li>
+</ul>
+
+<h3>3.2.2</h3>
+
+<ul>
+<li>Thanks to github.com/codeless: added a configurable whitelist of files to show.</li>
+<li>Fixed minor issue on hash page (needed htmlspecialchars)</li>
+<li>And, of course, various style &amp; code tweaks.</li>
+</ul>
+
+<h3>3.2.1</h3>
+
+<ul>
+<li>Added timer to "Please wait..." message after too many invalid login attempts.</li>
+<li>Mostly some misc code cleanup &amp; improvement.</li>
+</ul>
+
+<h3>3.2.0</h3>
+
+<ul>
+<li>Added a few security improvements.</li>
+<li>Added "timeout" timer as a warning to save edits before they're lost.</li>
+</ul>
+
+<h3>3.1.9</h3>
+
+<ul>
+<li>Password may now be stored as an encrypted hash, instead of in plain text.</li>
+<li>Added an "Admin" page to generate password hashes.</li>
+<li>A bunch of other code tweakin' &amp; improvements.</li>
+</ul>
+
+<h3>3.1.6 thru 3.1.8</h3>
+
+<ul>
+<li>Converted bulk of rest of code into functions (easier to work with).</li>
+<li>Resolved issue (I hope) with differing versions of PHP and how magic_quotes &amp; stripslashes are handled.</li>
+</ul>
+
+<h3>3.1.2 thru 3.1.5</h3>
+
+<ul>
+<li>Added file size limits to the Edit/View page. (Some browsers don't like large files in an HTML textarea.)</li>
+<li>Added some data validation to $_GET parameters</li>
+<li>Some misc code cleanup &amp; organization etc.</li>
+<li>And other misc stuff...</li>
+</ul>
+
+<h3>3.1.1</h3>
+
+<ul>
+<li>Fixed minor issue with data encoding of file for editting in a &lt;textarea></li>
+</ul>
+
+<h3>3.1</h3>
+
+<ul>
+<li>(Very) moderate data validation improvements.</li>
+<li>Reorganized &amp; funcionalized() most of the code.</li>
+</ul>
+
+<h3>3.0</h3>
+
+<ul>
+<li>Implemented svg icons</li>
+</ul>
+
+<h3>2.0</h3>
+
+<ul>
+<li><p>OneFileCMS is now actually ONE FILE! No external style sheets or icons. <br />
+(Of course, external style sheets &amp; icons can be added back in, if you like.)</p></li>
+<li><p>This is OneFileCMS "Lite", and will be maintained along with v3.0</p></li>
+</ul>
+
+<h3>1.5</h3>
+
+<ul>
+<li>Style sheet is now part of onfilecms.php file, but still uses external icons.</li>
+<li>Some minor logic improvements on Edit &amp; Index pages.</li>
+</ul>
+
+<h3>1.4.0</h3>
+
+<ul>
+<li>Substantial code reorganization &amp; updates.</li>
+</ul>
+
+<h3>1.2.4 - 1.3.0</h3>
+
+<ul>
+<li>DO NOT USE THESE VERSIONS!</li>
+<li>Mostly just a bunch of code modifications.</li>
+<li>These versions have issues, primarily when on the home/root page your site. </li>
+</ul>
+
+<h3>1.2.3</h3>
+
+<ul>
+<li>Fixed check for local css. If not found, loads hosted copy. 
+(This will soon be a moot point...)</li>
+</ul>
+
+<h3>1.2.2</h3>
+
+<ul>
+<li>On "Edit" page, images are now displayed directly, instead of a disabled textarea.</li>
+<li>Logout page replaced with standard "alert" message on login screen.</li>
+</ul>
+
+<h3>1.2.1</h3>
+
+<ul>
+<li>Fixed security hole that affected versions 1.1.7 - 1.2.0.</li>
+</ul>
+
+<h3>1.2.0</h3>
+
+<ul>
+<li>List of files now sorted alphabetically, without regard to case.</li>
+<li>Further improved Edit page &amp; screen feedback of file state (changed/unchanged).</li>
+<li>Added [X] dismiss button on message box</li>
+<li>File dates shown on Index &amp; Edit pages are now in user's local time.</li>
+<li>Moved from xhtml to html syntax &amp; doctype.</li>
+</ul>
+
+<h3>1.1.9</h3>
+
+<ul>
+<li>Improved Edit page &amp; screen feedback of file state (changed/unchanged).</li>
+<li>Removed use of jquery in move towards a true "OneFileCMS".</li>
+</ul>
+
+<h3>1.1.8</h3>
+
+<ul>
+<li>Added a table list view option (default).  Either List or original "Block" view selectable with $VIEW_MODE variable. (On screen selection in the works)</li>
+<li>(And, of course, numerous other code tweaks/improvements.</li>
+</ul>
+
+<h3>1.1.7</h3>
+
+<ul>
+<li>Added [Cancel] button to most screens. Numerous minor UI &amp; code tweaks/improvements.  Changed where .css is hosted (may change back later).  Removed "Rendered in (microseconds)...".  Added license info &amp; copyright notice.</li>
+</ul>
+
+<h3>1.1.6</h3>
+
+<ul>
+<li>Breadcrumb navigation (courtesy of <a href="https://github.com/Self-Evident/">Self-Evident</a>), CSS file and some minor changes to it</li>
+<li>Installation is still as usual, but now, if you have <em>onefilecms.css</em> in the same folder as <em>onefilecms.php</em>, it'll be linked instead of the normal <a href="http://onefilecms.com/style.css">http://onefilecms.com/style.css</a>.</li>
+</ul>
+
+<h3>1.1.5</h3>
+
+<ul>
+<li>Fixed a disallowed redirect vulnerability <br />
+Many thanks to Abhi M Balakrishnan from <a href="http://www.getmantra.com/">OWASP Mantra Team</a> for his help</li>
+</ul>
+
+<h3>1.1.4</h3>
+
+<ul>
+<li>JavaScript cleanup and jQuery upgrade</li>
+<li>Visit Site = /</li>
+<li>Now on GitHub!</li>
+</ul>
+
+<h3>1.1.3 (1/10/2012)</h3>
+
+<ul>
+<li>Fixed a upload bug leftover from 1.1.2's CSRF protection</li>
+</ul>
+
+<h3>1.1.2 (9/21/11)</h3>
+
+<ul>
+<li>More CSRF protection for logged-in users</li>
+</ul>
+
+<h3>1.1.1 (1/9/10)</h3>
+
+<ul>
+<li>CSRF protection (thanks Steve and Rene)</li>
+<li>Support for storing password as an MD5 hash (thanks, durilka!)</li>
+</ul>
+
+<h3>1.1.0 (10/18/09)</h3>
+
+<ul>
+<li>config_footer variable for branding or analytics code</li>
+<li>config_disabled variable to disallow editing of files like images, zips, icons, etc</li>
+<li>config_excluded variable to exclude specific files (or filetypes) from being shown in the index</li>
+<li>Shows hidden files (files that start with a "." like ".htaccess") on index listing</li>
+<li>"noindex" meta tag so Google doesn't crawl your backend</li>
+<li>Fixed a couple minor CSS and link bugs in the example site.</li>
+<li>Updated license page to clarify commercial license usage per domain and upgrade.</li>
+</ul>
+
+<h3>1.0.1 (9/24/09)</h3>
+
+<ul>
+<li>Relative CSS links and navigation in example site to work better with the demo (No change to OneFileCMS itself)</li>
+</ul>
+
+<h3>1.0 (9/5/09)</h3>
+
+<ul>
+<li>Launch!</li>
+</ul>

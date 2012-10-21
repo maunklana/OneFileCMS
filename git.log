@@ -1,0 +1,1730 @@
+commit 8b5e60788855bd6613d22a4cd565b20a9a59a1ea
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Oct 16 13:00:00 2012 -0400
+
+    Version 3.4.11
+    Update_Recent_Pages(): improved & simplified a bit.
+    CRM_Page(): stay in php & echo everything in prep for future improvements.
+    MCD_response(): Added direct check for new location.
+    In main logic section, moved a couple checks to inside of "if $_SESSION['valid']... "
+    Updated ES langauge file.
+    Deleted - longer used:
+       $_['No_action']   = 'No action selected.';
+       $_['Copy_Folder'] = 'Copy Folder';
+       $_['Del_Folder']  = 'Delete Folder';
+    
+    Version 3.4.09
+      (These changes actually included in .10, but were intended to be a sperate commit)
+    Added Sort_Seperate(): Sort & seperate Folders & Files from a supplied list.
+    Cancel_Submit_Buttons(): Removed $focus parameter as it's no longer used.
+    Cancel_Submit_Buttons(): added hsc() to echo of $submit_label,
+                             instead of expecting it already hsc()'d.
+    Upload_Page(): if ($max_file_uploads < $UPLOAD_FIELDS) ...
+    Renamed New_File_or_Folder_...() to just New_...()
+    rCopy(): added check to avoid bottomless pit of recursive folders
+    List_Selected(): removed - consolidated code into MCD_Page() (it's only use)
+    Consolidated Delete_Page() into MCD_Page().
+    Load_Selected_Page(): Made cooresponding changes for Delete_Page() -> MCD_Page().
+    Added $_['rCopy_msg_01'] = 'A folder can not be copied into one of its own sub-folders.';
+
+commit 73d2b71c6707d32d5e0de971160a786affdaf436
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Oct 8 16:45:00 2012 -0400
+
+    Version 3.4.10
+    Removed horizontal listing of folders from header.
+    Restructured Index_Page(), List_Files(), and Table_of_Files().
+    Table_of_Files(): List folders and files. (Formerly only listed files.)
+    Index_Page(): Removed [Rename/Move Folder] and [Copy Folder] buttons.
+    Verify_Page_Conditions(): Prep for MCD_Page() to delete a single folder selected via (x) icon on index page.
+    Set_Input_Width(): Made changed re: no longer using "Old LOcation" ($_[crm_txt_03])
+    rDel(): Now returns number of deletes & unlinks, or false on an error.
+    Set_Input_Width(): Cleaned up & cooresponding changes for CRM_...()
+    CRM_Page(): Removed "Old Name" & "Old Location" lines as redundant/implicit.
+                Combined into one <input type=hidden name=old_name ...>
+    CRM_response: old_name & Old_location are no longer seperate $_POST values.
+    MCD_response(): old_name & Old_location are no longer seperate $_POST values.
+    New_response(): Renamed $is_file to $isfile.
+    Responsd_to_POST(): Consolidated Copy_ & rename_folder  into copy_ & rename_file().
+    Load_Selected_Page():copy_folder -> copy_file, rename_folder -> rename_file
+    Respond_to_POST(): Made cooresponding changes for MCD_response() & Load_Selected_Page().
+    Removed svg_icon_folder_ren(), svg_icon_folder_cpy(), and svg_icon_folder_del(),
+    		svg_icon_ren(), and svg_icon_file_del(). (No longer used)
+    Changed/ added: svg_icon_mov(), svg_icon_ren_mov().
+    Init_icons(): Converted svg icons from a bunch of functions to an array of $ICONS[]
+    show_icon(): Cooresponding changes to use $ICONS.
+    show_icon(): Consolidated code into List_File() (its one use).
+    Added icon & file types for compressed files.
+    Select_All(): Now works in IE.
+    Confirm_ready(): minor improvement to logic.
+    style_sheet(): Some misc cleanup.
+    Changed: $_['Selected_Files'] = 'Selected Folders and Files'; //####
+    Deleted: $_['R'], $_['C'], $_['D'], $_['delete_msg_01'], $_['delete_msg_02'],
+    	     $_['CRM_txt_03'], $_['CRM_txt_05']
+
+commit 7373a224c91b15759c8ba982f8e322cb96156afb
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Sep 25 21:50:00 2012 -0400
+
+    on 3.4.08
+    Added rCopy(): recursive Copy. Handles all file & folder copies.
+    $VALID_PAGES: added copyfolder.  rename -> renamefile.  copy -> copyfile
+    Created svg_icon_folder_cpy()
+    Admin_Page(): Changed wording.
+    Table_of_Files():Changes prep'ing for listing folders.
+    Moved [Upload File] & [New File] from Index_Page() to List_Files(), next to [Move] [Copy] [Delete]
+    Added [Copy Folder] button to index page.
+    Set_Input_width(): Some changes...
+    CRM_Page(): Split old_name -> old_name & old_location.
+    CRM_response(): removed $isfile param. Split Split old_name -> old_name & old_location.
+    MCD_response(): Split old_name -> old_name & old_location.
+    Load_Selected_Page(): Default to Index_Page() instead of Login_Page().
+    Respond_to_POST(): copy_folder...
+    Tweaked the css.
+    Output of page contents:  Check $_SESSION['valid'] instead of $page=login.
+    A few $_[] changes.
+    s Please enter the commit message for your changes. Lines starting
+
+commit f04386e3e3879d9164800c9735ae25ac74d55375
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Sep 23 00:00:00 2012 -0400
+
+    Version 3.4.07
+    Consolidated Delete_File_  & Delelete_Folder_ (_page & _response) functions into
+       Delete_Page() & Delete_response().
+    Added rDel(): recursive delete - now able to delete non-empty folders.
+                : Handles all file & folder deletes.
+    $valid_pages: renamed delete to deletefile
+    Verify_page_conditions(): Removed check for folder not empty.
+    Check_path(): added hsc() to a couple places.
+    Added List_Selected(): Lists selected files & folders.
+    Cancel_Submit_Buttons(): No longers takes focus - leaves on current folder name.
+    Change_PWUN_Page(): Added a few params & removed lines that used to set them.
+    Delete_response(): require $target parameter.
+    CRM_response(): Split/improved check for invalid chars in new location/name.
+    $Index_Page(): Minor bug fix: removed extra slash from folder links.
+    Darkened the svg folder icons.
+    Removed & changed a few $_[] langauge strings.
+
+commit deeed6c5175815b552a6b09ed32b37731f40e969
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Sep 20 16:05:00 2012 -0400
+
+    Version 3.4.06
+    Index_Page(): switched from glob() to scandir() for folder list.
+       - glob('*') doesn't return hidden "dot" folders.
+    Minor bug fix: from edit page, if delete file, and delete fails - returns to edit with null file.
+    Consolidated a couple language values.
+
+commit 9332e26ad98bb45d9487965258588fc0e1a1139e
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Sep 18 00:00:00 2012 -0400
+
+    Version 3.4.05
+    Added $UPLOAD_FIELDS config option.
+    $WHSPC_SLASH = "\x00..\x20/" for use in trimming file & folder name input.
+    Table_of_Files(): <input checkbox name=files[]> instead of files[1] files[2] etc...
+    Along with above, removed use of $CHECKBOX_OFFSET.
+    List_Files(): Renamed <input mcdselect> to <input mcdaction>
+    List_Files(): Switched from radio buttons to <button> for action select (Move, Copy, Delete).
+      Elsewhere, $_POST[action] => $_POST[mcdaction]
+    Upload_Page(): Added additional upload inputs.
+    Upload_response() now handles multiple uploaded files.
+    Upload_Page() & _response(): Removed $MAX_FILE_SIZE code (usually = post_max_size)
+      1) php returns an upload error if upload_max_filesize is exceded.
+      2) php returns an empty $_POST array if post_max_size is exceded, but no error.
+      > 1 can be checked for directly, 2 can not (all $_POSTed values, such as MAX_FILE_SIZE, are lost)
+    Upload_Page(): Deleted shorthand_to_int() - no longer used.
+    MCD_Page(): Like List_Files(), don't directly index values of name attributes:
+    	Just use <input name=files[]> ...
+        instead of <input name=files[1]>,  <... =files[2]>, etc...
+    Confirm_ready(): Now called by button options directly. Removed "action" checks.
+    Submit_btn_style(): (a js function) Deleted - no longer used.
+    Rolled Upload_New_Rename_Delete_Links() directly into Index_Page(), and only show once.
+    Index page: removed NUONCE.  Maybe I'll put it back. Maybe not.
+    Verify_page_conditions(): Removed:  elseif ($page == "mcdaction" && !$VALID_POST ){ ...
+
+commit 652c1ec63cf01fecfe99c1e3518dcaabdc8ca700
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Sep 14 01:10:00 2012 -0400
+
+    Version 3.4.04
+    Minor bug fix.
+    dir_name(), CRM_response():  don't add trailing slash if $path == ""
+    Check_path(): added a couple different checks.
+    Moved has_invalid_char() up a bit in the code. (Because I wanted to...)  :)
+    Removed a redundant $_[] value.
+
+commit 6bd1262e362803f2fff409ebe86af30c7c13b88e
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Sep 13 18:10:00 2012 -0400
+
+    Version 3.4.03
+    Minor date typo.
+
+commit 717bfb78bbf39982d8b9ffe1308ee807acc54299
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Sep 13 18:00:00 2012 -0400
+
+    Version 3.4.03
+    Get_GET(): minor improvement/fix to ipath validation.
+    Added check if $ipath = "", and $page = deletefolder or renamefolder, ignore & load index.
+    Added Check_path() to $old_ & $new_location incase either is root. (avoids "dot" folder name)
+    Created dir_name(), a modified dirname().
+    List_Files(): Changed <form> name to mcdselect, from mcdaction.
+    List_Files(): Changed hidden <input> name and value to mcdselect, from mcdaction.
+    New_File_or_Folder_response(): Replaced New_File_response() & New_Folder_response().
+    CRM_Page(): Split inputs for filename (or current folder) and parent dir path.
+    CRM_response(): Adjusted per CRM_Page() changes.
+    MCD_response(): Adjusted per CRM_Page() changes.
+    MCD_Page(): moved if copy/move/del to Load_Selected_Page() logic.
+    MCD_Page(): Consolidated two loops into one.
+    Update_Recent_Pages(): Removed option to remove current page (no longer used).
+    Changed, added, and removed a number of $_[] values.
+    Verify_IDLE_POST_etc(): Don't logout if invalid post, just clear POST & load index.
+    Respond_to_POST(): minor logic improvement.
+    Verify_page_conditions(): consolidated $page checks from main logic, Get_GET(), & Respond_to_POST().
+    Numerous changed, new, and removed $_[] values.
+
+commit 8d430644967fb199cae64dd583ab4c747246b521
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Sep 10 20:40:00 2012 -0400
+
+    Version 3.4.02
+    Moved $CHECKBOK_OFFSET from List_Files() to System Values & Setup
+    Check_path(): Improved/simplified (even tho it's a bit longer).
+    Created has_invalid_char().
+    supports_svg(): Minor logic fix.
+    Table_of_Files(): Adjusted <a> title atribute for filename. Edit to Edit/View.
+    New_File_or_Folder_Page(): Replaced New_File_Page() & New_Folder_Page().
+    New_File_response(): Improved $message's a bit.  Use touch() to create new file.
+    Renamed Copy_Ren_Move_...() to cRM_...()
+    CRM_page(): added <input hidden> value=copy or rename or move
+    CRM_response(): Validate old & new parent folder locations.
+    CRM_response(): Validate new file or folder name.
+    CRM_response(): Don't pass global $_POST params.
+    Delete_Folder_Page(): removed Check_path() - should already been checked.
+    Delete_Folder_response(): Cooresponding fix with change of Check_path.
+    MCD_response(): improved trim of new_location.
+    MCD_response(): Don't pass params to CRM_response, set global $_POST values.
+    Page_Title(): Added titles for mcdaction's "copy", "move", & "delete".
+    New $_[] values: 'Error', 'Open_View'
+    Changed $_[] values: 'new_file_txt_01', 'new_file_msg_03', 'new_file_msg_04'
+    (Still need a few strings changed to $_[] values)
+
+commit a93c04a9964eb44cf51543b9ec97eba15042f67f
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Sep 9 15:45:00 2012 -0400
+
+    Version 3.4.01
+    Check_path(): Minor logic fix.
+    Cancel_Submit_Buttons(): Improved/simplified use of [recent_pages].
+    Admin_Page(): Improved preserve/restore $ipath.
+    Admin_Page(): Fixed minor issue with [Edit OneFileCMS] button $params.
+    Change_PWUN_Page(): don't hsc() until echo'ing to page.
+    Change_PWUN_response($PWUN, $msg): added $msg param and removed an if/then.
+    Table_of_Files(): Don't show Rename, Delete, or ckbox options for OneFile itself.
+    Edit_Page_buttons & _top(): Improved check for [admin_page].
+    Copy_Ren_Move_Page & _response(): Don't hsc() params until echo.
+    Copy_Ren_Move_response(): Removed some abandonded code. Added some that was needed.
+    Delete_File_response(): Removed check for [recent_pages].
+    MCD_Page(): Moved list of "Selected Files" AFTER [Cancel] [Sumbit] buttons.
+    MCD_response(): Added a couple params & removed if/then that used to set those values.
+    Load_Selected_Page(): Removed hsc() from params - now hsc() only when echo'd.
+    Page_Title(): removed hsc()'s - put where Page_Title() is called.
+    Respond_to_POST(): added new params to a few function calls.
+    Improved the js function Confirm_ready().
+    In main logic section, added use of/logic for $_SESSION[admin_page & recent_pages].
+    Consolidated a dozen or so redundant $_[langauge] strings (page_title_...).
+    Moved Update_Recent_Pages() down after last few $page checks.
+    Tweaked, added, & deleted some css
+    Changed $Show_header_and_Admin to $Show_Path, & tweaked the logic.
+
+commit 0f2bb5bf44ee2da38f6cfda87acf4fbfe060c68e
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Aug 30 15:15:00 2012 -0400
+
+    Version 3.4.0
+    Minor improvment to Error_reporting_and_early_output().
+    Modified svg icon for copy.
+    In generating HTML output, now just echo everying, instead of dropping out of php mode.
+    URLencode_path() needed on a $params string.
+    Updated readme & _structure.txt
+    A couple other minor ADOCD adjustments. Or maybe the're OCADD...
+
+commit 3ff88fe7977e6ee31256985d53bf7e3cc1e57cc6
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Aug 29 12:00:00 2012 -0400
+
+    Version 3.3.18
+    Added Copy & Delete to Move as multi-file options on index page.
+    (includes new js as well as php code.)
+      mdaction => mcdaction
+      MD_Action_Page() => MCD_Page()
+      MD_Action_mov()  => MCD_response()
+    Improved message_box() & related styles.
+    Consolidated Time_Stamp_scripts() & Timer_scripts() into common_scripts().
+    Split off Table_of_Files() from List_Files().
+    Split off List_Backup() from Admin_Page().
+    Copy_Ren_Move_response(): Improved logic to show/not show $message's
+    Delete_File_response(): Added logic to show/not show $message's
+    Changing Password & Username will now update $config_file (if it's used)
+    Added the folowing global vars - used for p/w & u/n updates:
+      $ONESCRIPT_path, $CONFIG_file ,$CONFIG_file_backup, $CONFIG_url_backup
+    Added some $_[] strings.
+    Eliminated a couple redundant $_[] strings.
+    Added class="filename" for filenames in $message's.
+    label {styles}: removed "display: inline-block"
+    Added $_['select_all_label_size'] to language settings
+
+commit 6e14c7765096c7cae881997acaa2ba999c6ef1cc
+Merge: 36ca754 29547f6
+Author: David <selfevidenttruths@mail.com>
+Date:   Sat Aug 18 13:24:37 2012 -0400
+
+    Merge branch 'master' of github.com:Self-Evident/OneFileCMS
+
+commit 29547f602acb976e28142624f6b76de26d898904
+Merge: 4f91880 576008f
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Sat Aug 18 10:06:49 2012 -0700
+
+    Merge pull request #11 from codeless/patch-1
+    
+    Update OneFileCMS.LANG.DE.php
+    Take two...
+
+commit 36ca7543acc0c66e05c372ad5b859ab28868eedd
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Aug 17 21:15:00 2012 -0400
+
+    Version 3.3.17
+    Get_GET(): check if ($page == "mdaction" && !$VALID_POST )
+    is_empty(): if ($path == "") {$path = '.';}
+    Improved Change_PWUN_response().
+    List_Files(): Added option to select & move multiple files.
+    Copy_Ren_Move_Page(): adjusted/split some text.
+    Copy_Ren_Move_response(): Now always returns to index, added msg flag.
+    Added MD_Action_Page(): Multiple Move or Delete (Delete not yet implemented).
+    Added MD_Action_mov(): move files selected on _Page.
+    Respond_to_POST(): Check for mdaction's.
+    Added 12 new language text strings.
+    New & adjusted css.
+
+commit 576008f496b44ff1a5a1dec25ea89be77083f91f
+Author: codeless <mh@unixassembler.at>
+Date:   Thu Aug 16 11:06:12 2012 +0300
+
+    Update OneFileCMS.LANG.DE.php
+    
+    Update of german language file
+
+commit 4f91880a5e71a46e8d9455aa421be89ff80a0bcc
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Aug 14 15:30:00 2012 -0400
+
+    Version 3.3.16
+    Minor readme update.
+
+commit d35df0d1cb041e082f5b6875eb0c3f85c380a56a
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Aug 14 13:50:00 2012 -0400
+
+    Version 3.3.16 Language Files
+    Added missing line.
+
+commit 152eb916d361c0d486d3d6b2dccd88a728b221f8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Aug 14 13:40:00 2012 -0400
+
+    Version 3.3.16
+    Added Rename, Copy, and Delete file options to Index page.
+    Removed some css for svg (properties already "reset")
+    Removed some superfluous <someclass>.a:hover {styles}
+    Added supports_svg(): checks for IE < 9.
+    Added svg_icon_ren(), svg_icon_copy(), svg_icon_del()
+    List_Files(): check for old IE < 9, provide text "icons" in lieu of svg
+    Removed show_favicon(): only 4 lines - put code directly in Page_Header().
+    Change_PWUN_response(): removed unnecessary parameter check.
+    Added $_['R'], $_['C'], $_['D'], $_['update_failed']
+    Update_config(): Added check if file_put_contents() fails.
+    Removed old ini language files - still available in download archive.
+
+commit d31c4a42ddd68db0e93fd47b32a9dbc0f8e0503d
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Aug 13 01:00:00 2012 -0400
+
+    Version 3.3.15
+    Created system variables: $ONESCRIPT_url_backup, $ONESCRIPT_file, $ONESCRIPT_file_backup
+    Added: $_['admin_txt_00'], $_['admin_txt_01']
+    Changed wording in $_['admin_txt_12']
+    Removed unset of $_SESSION['admin_ipath'] at end of Update_Recent_Pages().
+    In Get_GET(), strtolower($page)  is now just $page.
+    Cancel_Submit_Buttons(): improved setting of $params.
+    Update_config(): Backup OneFile before p/w or u/n update.
+    Admin_Page(): Added check for the backup file from a p/w or u/n change.
+    Hash_Page(): minor cleanup.
+    Change_PWUN_response(): Removed three $page = "changepw" lines - it's default.
+    Edit_Page_buttons(): Don't show [Rename] or [Delete] if $Editing_OFCMS.
+    Edit_Page_buttons(): Tweaked some spaces
+    Delete_File_response(): If came from admin (del'd .BACKUP.php), return there.
+    Moved Update_Recent_Pages() ahead of checks on $page conditions.
+    Removed superfluous check in $page conditions checks.
+    Created $Editing_OFCMS: Used to disable some options if editing OneFileCMS itself.
+    Session_Startup(): set $path = "", blank, in session_set_cookie_params().
+    Added/tweaked some css.
+
+commit 8cff3399dd4edd7b28ab73206d91c7a27c198a58
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Aug 11 14:00:00 2012 -0400
+
+    Version 3.3.14
+    Added "changeun" to list of $valid_pages[].
+    Added link on Admin page to Change Username.
+    Change_Password_Page()     is now Change_PWUN_Page().  (PWUN: PassWordUserName)
+    Change_Password_response() is now Change_PWUN_response().
+    Updated Page_Title(), Load_Selected_Page(), Respond_to_POST() for a change username option.
+    Updated $Show_header_and_Admin check to check for change username.
+    External language, readme, and structure files NOT updated.
+
+commit 5c49f72a6767e1d1096a0b9c9e349463359152ff
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Aug 11 12:18:30 2012 -0400
+
+    Version 3.3.13
+    Removed use of & references to $PASSWORD & $USE_HASH.
+      Primarily affected Login_response & Change_Password_...() functions.
+    Init_Maros(): added $PWUN_RULES  (PassWord & UserName).
+    Changed text on Admin, Hash, and Change Password pages.
+    External language files NOT updated.
+    Readme & structure files NOT updated.
+
+commit 4c590b8a0861b58d34a3db11d05ce7b5d84c54c3
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Aug 10 00:00:00 2012 -0400
+
+    Version 3.3.12
+    Added Change_Password_Page().
+    Added Change_Password_response().
+    Added changepw to list of valid_pages[].
+    Added changepw as option in Page_Title(), Load_Selected_Page().
+    Added $_['page_title_change_pw'].
+    Added check for $_POST["new_pw1"] in Respond_to_POST().
+    Added & adjusted some css for p/w page.
+    Changed text on Hash page:
+      Reworded $_['hash_txt_01']
+      Removed  _02 thru _05, _13, _14
+      Added p/w rules (same as on p/w page)
+    Added language strings for admin page.
+      (In general, reworded text from hash page.)
+      $_['hash_txt_03'] is now $_['admin_txt_08']
+      $_['hash_txt_13'] is now $_['admin_txt_16']
+      $_['hash_txt_14'] is now $_['admin_txt_14']
+    Added Search_Replace_Line(): used to update password.
+    Admin page: Added some general info, & link to p/w page.
+    Timeout_Timer(): added default values for a couple parameters.
+    Added & moved check for $Show_header_and_Admin to page logic section.
+    Load_Selected_Page(): Explicitly added if $page == index...
+    Load_Selected_Page(): if $page unknown, default is now Login (was index).
+    Added hsc() around several $_[] strings that needed it.
+    hte(): added htmlentities() parameters: ENT_QUOTES, 'UTF-8'
+
+commit dde5af8323b0b800ad9afd7c6f0fcdc6ac8e782d
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Aug 9 03:00:00 2012 -0400
+
+    Version 3.3.11
+    Tweaked a few $_[] values. (incidental changes)
+    Added $_['get_get_msg_02']
+    updated: $_['page_title_admin'], $_['page_title_hash']
+    Consolidated & removed $[..._h2] strings with cooresponding $_[page_title_...] strings.
+    Login_response() & Session_startup():
+      Ignore login if EITHER username OR password are omitted.
+      (formally, ignored only if BOTH were omitted)
+    Verify_IDLE_POST_etc(): tweaked user_agent check.
+    $_SESSION['USER_AGENT'] to $_SESSION['user_agent']
+    Timeout_Timer(): added a couple default parameter values.
+    Improved validation of $_GET[] parameters.
+    Improved Directory/Filename "...does not exist..." $messages.
+    Hash_Page(): move inline style to style_sheet()
+    Minor improvement to $page checks at end of page logic (before html output).
+    Hash_response(): Ignore/don't hash empty strings.
+    Updated langauge files as needed.
+
+commit 51f8472f67f25638d6aea1e0c4edf90008f8ba48
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Aug 7 18:30:00 2012 -0400
+
+    Version 3.3.10
+    Created Admin_Page() for [Hash Page] & [Edit OneFileCMS] links.
+    Added "admin" to list of $valid_pages array
+    Page_Title() & Load_Selected_Page(): added if ($page == "admin")...
+    Added "admin" to list of pages to not show Current_Path_Header() or Admin link
+    Admin link now loads Admin_Page() instead of Hash_Page().
+    Hash_Page(): removed [Edit OneFileCMS] link.
+    Added $_['page_title_admin'] = 'Administration'
+    	  $_['admin_h2']         = 'Administration';
+    Edit_Page_buttons_top(): If prior_page = admin, [Close] returns to Admin Page
+    Edit_Page_buttons()    : If prior_page = admin, [Close] returns to Admin Page
+    Added '<br>' to end of a few $message's.
+    Added $_SESSION[recent_pages] array for use with cancel/close/return links
+    Added Update_Recent_Pages()
+    Added $_SESSION['admin_ipath'] = $ipath when admin page loaded. So after [Edit OneFileCMS],
+      returns to expected ipath. (not neccessarily path of OneFileCMS)
+    Cancel_Submit_Buttons(): recent_pages code to help preserve ipath from admin page.
+    Cancel_Submit_Buttons(): updated logic to determine [Cancel] action
+    And, naturally, adjusted some css
+
+commit dfd8a8e8158bb99f6ca5079adfcdb1749da097d2
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Aug 6 11:40:00 2012 -0400
+
+    3.3.09
+    OFCMS requires 5.1.0 or later, due to changes in explode().
+    Set_Input_width(): removed: $WEB_ROOT = 'www/'; (left over from troubleshooting)
+    Removed check for ($E_level & 32768) (got carried away...)
+    Added comments to Error_reporting_and_early_output()
+    Added default values for parameters in a couple SVG functions.
+    Copy_Ren_Move_response(): Adjusted use of <b>
+
+commit 2d43150d79aef63da320b20f919f693b157cafdd
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Aug 3 17:50:00 2012 -0400
+
+    Version 3.3.08
+    Improved use of ob contents.
+    Added Error_reporting_and_early_output().
+    Created Language_and_config_adjusted_styles() to consolidate dynamic css values.
+    Removed Load_Language(), put its two lines in page logic section. (It used to do more).
+    Added some English $_[] language strings for Error_reporting_and_early_output().
+    Updated OneFileCMS_structure.txt
+    Updated the readme.
+
+commit 352301a7f9f3fcf6badf34084d3dfff2b726cdec
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Aug 1 23:59:00 2012 -0400
+
+    Version 3.3.07
+    Updated readme.
+
+commit 549ac79e35274f7be378111eced8a28fe296990e
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Aug 1 23:45:00 2012 -0400
+
+    Version 3.3.07
+    Language files are now in php format, instead of ini.
+    Moved version check down, after Load_Language(). Otherwise, instead of exit message,
+      an error would display since the language array, $_, had not yet been loaded.
+    Defined constants PHP_VERSION_ID_REQUIRED & PHP_VERSION_REQUIRED for version testing.
+      Currently = 50000 & "5.0 +" respectively.
+    Adjusted the language text in $_['OFCMS_requires'].
+    Session_Startup(): Removed some unneccessary variables in global line.
+    Edit_Page():       Removed some unneccessary variables in global line.
+    Added $TO_WARNING system value for use in timer scripts.
+    Login_response(): Trim any incidental leading or trailing spaces from p/w & u/n
+                      before verification.
+    Started using ob_start() & ob_get_contents() to capture early/undesired output.
+    Updated the readme.
+
+commit 16612aa6366ca03b82afe25a29e0235c4beb2b80
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Aug 1 22:10:00 2012 -0400
+
+    Old Langauge Files (ini versions)
+
+commit 8efc2be697ea57ca398e49c5aeccb039deafa5ef
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Jul 31 16:40:00 2012 -0400
+
+    Version 3.3.06
+    An external $config_file is now simply a php file (was an ini).
+      So, now uses include($config_file) instead of parse_ini_file($config_file).
+    Added some comments for $config_file
+    Increased hash iterations from 1000 to 10000.
+      (I've read that lots of iterations help slow down brute force p/w recovery)
+    Updated hash for default "password".
+    Created Page_Header() & moved <div class=header> code to it.
+    show_favicon(): now returns string instead of echo'ing it.
+    Upload_response(): changed $_['bytes_01'] (it wasn't defined) to $_['meta_txt_02'].
+    Created Set_Input_width() for use in Copy_Ren_Move_Page().
+    style_sheet(): Set width of input type="text" to 99.5%
+    Adjusted css for label
+    A couple of minor text spacing improvements.
+
+commit 8739073770b1c847f9cd7b6f4f0c1634f7508609
+Author: David <selfevidenttruths@mail.com>
+Date:   Wed Jul 25 16:26:48 2012 -0400
+
+    Version 3.3.05a
+    Updated readme
+
+commit 0106590a45c3b43ba19cc5e3d14c5459cd1f5705
+Author: David <selfevidenttruths@mail.com>
+Date:   Wed Jul 25 16:23:32 2012 -0400
+
+    Version 3.3.05a
+    Removed some trouble-shooting code left in unintentionally.
+
+commit 6f84a0fe266b203fa2a2ad80bc1905d02e3fa553
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 24 17:10:45 2012 -0400
+
+    Version 3.3.05
+    Updated readme
+
+commit 30b46367a0ba5e477d5b5e5d6951d300f9973f8e
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 24 16:56:21 2012 -0400
+
+    Version 3.3.05
+    Changed $LANGUAGE to $LANGUAGE_FILE.  Seems more precise to what it is.
+    Added a few $_[] langauge settings for adjusting some font sizing & spacing.
+      (Occasionally, some languages may use longer words or phrases than others.)
+    $_['pass_to_hash'] & $_['reset'] needed wrapped in hsc();
+    Removed name attribute from [Cancel] button - it was not used.
+    show_image(): Simplified logic to determine image scale.
+    Improved a couple lines of code to pass "E_STRICT", even tho they worked fine before.
+    Added addslashes() to echo of $timeout_warning.
+    In Edit_Page_scripts(), tweaked code to determine edit_view width.
+
+commit d8359ec9755fdfa2d24c0abc29adc77ab34bd21b
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 24 16:47:56 2012 -0400
+
+    Spanish langauge file
+    Version 3.3.05
+    Added a few settings to adjust some css values if needed.
+
+commit 8cd5e982b3d716c181fd5a603a37ae783d80e2f6
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 24 16:47:04 2012 -0400
+
+    German langauge file
+    Version 3.3.05
+    Added a few settings to adjust some css values if needed.
+
+commit c1a3b64906d88d32dce30a2db99914385b9847e0
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 24 16:44:57 2012 -0400
+
+    English langauge file (default)
+    Version 3.3.05
+    Added a few settings to adjust some css values if needed.
+
+commit 61758cce0547445ee2170ac070286d72f7a9dcad
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Jul 22 19:35:01 2012 -0400
+
+    Version 3.3.04
+    Edit_Page... : detect & display file encoding (ASCII, UTF-8, etc...) for editable file types.
+     (If not ASCII or UTF-8, convert to UTF-8 ??)
+    Created Load_Language() and moved appropriate logic there.
+    Created Respongd_to_POST() and moved appropriate logic there.
+    Converted some missed text to a $_[] lanaguage string.
+    Added notes to section that processes external config file regarding security.
+
+commit d5db7fcd4dc0d54b59da167f0b3860e7a970271c
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Jul 22 19:26:26 2012 -0400
+
+    Spanish language settings
+    Version 3.3.04. Added a missing setting.
+
+commit 4b74c2f2095541ac4cd0af1676834daf9e55e4eb
+Merge: cd77447 5d6526f
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Sun Jul 22 16:22:23 2012 -0700
+
+    Merge pull request #9 from fermuch/master
+    
+    Spanish language settings.
+
+commit cd774479c3e0c8302fc4c25c92691e4378447aa7
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Jul 22 16:45:03 2012 -0400
+
+    German language settings.
+    Version 3.3.04.  Minor updates.
+
+commit ba2a1ca85ab6de9482fa3608b6f967b8e51d59e4
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Jul 22 16:42:22 2012 -0400
+
+    English language settings.
+    Version 3.3.04. Minor updates.
+
+commit 5d6526f9dcb7ab2cf6426bedcd26fe41ed142588
+Author: Fernando Mumbach <fermuch@gmail.com>
+Date:   Sat Jul 21 06:12:33 2012 -0300
+
+    Translated to Spanish!
+
+commit 1e100909fd527496b8d7f1f3ff6c9b66df27acc0
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jul 20 20:10:01 2012 -0400
+
+    Version 3.3.03
+    NO SPACE between hash_msg_02 & hash! Messes up copy & paste (pastes an extra space)
+    Converted a couple text strings that were missed to $_[language strings]
+    Created hte() as a shortened htmlentities().  Because I felt like it...
+    Edit_Page(): changed <textarea> name from "content" to "contents".  'Cause it bugged me.
+    Edit_respose(): convert "\r\n" to "\n" before save.  Make it a config option?
+    Added: header('Content-type: text/html; charset=UTF-8');
+    Added $MAIN_WIDTH config variable to set page layout main width.
+    Save edit_view width in cookie for persistance. (before, it was lost with each save)
+
+commit 1b4b63a2ed1a0ed91dd1606bdac1f9dbe2dbf760
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jul 19 15:42:39 2012 -0400
+
+    Version 3.3.2
+    Saving language files in UTC-8, instead of ANSI.
+
+commit 5d11e554a349e9477b9973e650016f206537a344
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 17 15:10:30 2012 -0400
+
+    Version 3.3.02
+    Better fix for the Default_Language() issue from 3.3.01
+    Added a 2 minute warning warning $message.  $_['session_warning']
+    Pulled call to undo_magic_quotes() out of Get_Get() directly.
+      - Allows subsequent calls to Get_Get().
+    Cleaned up language messages a bit: moved some leading & trailing spaces to the code.
+    A couple css tweaks
+
+commit 412fb48ff65b3f54d3b3da7db3f65babf336e63b
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 17 14:50:09 2012 -0400
+
+    Version 3.3.02
+    Added German language file courtesy of github.com/codeless.
+
+commit 4fd01f48cdebb7c264fe7c38cbc40b9d3224ff99
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jul 13 17:37:29 2012 -0400
+
+    Version 3.3.01
+    Forgot to updated the version listed in-file...
+
+commit a52f43b295b68ddb097ab00e049ace4960758091
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jul 13 17:30:01 2012 -0400
+
+    Version 3.3.01
+    Forgot to update the version listed in-file...
+
+commit 868d7c3764411f14424ae3f7dcb44c662a5c2de9
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jul 13 17:21:49 2012 -0400
+
+    Version 3.3.01
+    Updated readme.markdown
+
+commit ef71e88c8adb4082d6d9e24180cbd16adff857ae
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jul 13 17:10:40 2012 -0400
+
+    Version 3.3.01
+    Edit_Page_scripts(): Tweaked [Save] button event triggered css
+    Copy_Ren_Move_response(): $param3 was missing in global
+    svg_icons...(): now returns a string instead of echo'ing <svg> directly.
+    Delete_Folder_response(): missing $_ in global
+    Added $WIDE_VIEW_WIDTH config variable.  Not sure if it will stay...
+    Pulled 	undo_magic_quotes() out of Get_GET() so Get_GET() may be called again, if needed.
+    Minor typo in edit_txt_03
+    Minor wording change to edit_note_03
+    Minor wording change to edit_note_04
+    Default_Language(): Fixed issue for PHP versions < 5.3: OFCMS failed to load
+      - this fix may be a temporary solution, but it works for now.
+    Ummm...  and some css tweakin' too...
+
+commit ca474f83d0b08329595ec2194ec16c995b70eaf2
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 10 17:21:29 2012 -0400
+
+    Removed onefile.css from repo, as it's no longer used.
+
+commit e32e0ad6edb8e326a45a24d4fb08b84902c9930a
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 10 17:17:49 2012 -0400
+
+    Version 3.3.0
+
+commit a97b0b7f47dbc146544dfefa4fc97abca887d546
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jul 10 17:07:01 2012 -0400
+
+    Version 3.3.0
+    Setup muli-languages support. (Now just need some translations...)
+    Created hsc() to do htmlspecialchars()  - saves 13 bytes with use use!  :)
+    Get_GET(): moved part with $message up so $message is not lost (by filename="").
+    Split out Edit_Page_buttons_top() from Edit_Page().
+    Fixed minor issue with [Wide View]
+    Adjusted some css
+
+commit b20e3ba2352908b33c565b83b79708580750d4e5
+Author: David <selfevidenttruths@mail.com>
+Date:   Sat Jul 7 14:02:14 2012 -0400
+
+    Version 3.2.4 BETA
+    Beta version for testing multi-language support.
+
+commit 3351ec98f676bee71800f46e204dfc543a7bfb08
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jul 5 19:09:31 2012 -0400
+
+    Version 3.2.3
+    Minor ytpo...
+
+commit 7c5ae85e5860deb1c6d87328fc41f9b8fddb1d90
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jul 5 18:00:10 2012 -0400
+
+    Version 3.2.3
+    Login_response(): Improved use of $LOGIN_ATTEMPTS.
+    Tweaked some css.
+    Renamed file_content to file_contents.  (It just bugged me)
+    Improved $too_large_... logic.
+    Edit_Page(): Added [Wide View] button. (Includes some js)
+    Split out Edit_Page_Notes() from Edit_Page_form()
+
+commit fa4d5c1e6ba81bf889028ee20fffab160d09d08e
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jul 5 17:25:47 2012 -0400
+
+    Version 3.2.2.1
+    Added ability to process a config file. (courtesy gitghub/codeless)
+
+commit 530c6c6ada4c3c270f9a162557a2b702a8967c3c
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Jul 1 17:02:40 2012 -0400
+
+    Version 3.2.2
+    Thanks to github.com/codeless for adding a configurable "whitelist" of files to show.
+    Added .log to editable file types.
+    Converted CRLF's to just LF's - cut 2040 bytes! :)
+    Some minor code restructure in List_Files() (mostly to satisfy the OCD in me...)
+    Tweaked Timer color when < 2:00.
+    In Verify_IDLE_POST_etc(), removed a ['valid'] check, as it's redundant there.
+    Hash_Page():added if (!isset($_POST['whattohash']))...
+    Hash_response(): Removed $SALT reference as it wasn't used.
+    Hash_response(): Added htmlspecialchars!
+
+commit 5648bcd9f9d2c0601684b4816a7fe19e311551ae
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jun 28 18:09:12 2012 -0400
+
+    Version 3.2.1
+    Minor readme update.
+
+commit ec2eb2c25b3db7d7fe482f877bccf17f4804eb11
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jun 28 18:05:49 2012 -0400
+
+    "Lite" Version 2.2.1
+
+commit 0fb7ae4fa035b99f5384d872e9a1c4a73394e932
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Jun 28 18:03:52 2012 -0400
+
+    Version 3.2.01
+    Improved Timeout_Timer(), & adjusted css classes
+    Session_Startup: split up & created Verify_IDLE_POST_etc().
+    Edit_Page(): Minor correction to max idle time as displayed.
+    Edit_Page(): Moved 2nd countdown timer to next to [Save].
+    Login_response(): Ignore login attempt if both u/n & p/w are blank.
+    Login_response(): Improved logic of login delay messages.
+    Login_response(): Removed clearstatcache().  Shouldn't be needed.
+    Login_response(): Added $_SESSION = array();
+    Login_response(): Added Timeout_Timer to "Please wait..." $message
+    Some css tweakin'
+    Updated/improved various //comments
+
+commit 453be0b5dcdaa5765b223a09d35241acde80ec70
+Author: David <selfevidenttruths@mail.com>
+Date:   Wed Jun 27 17:00:25 2012 -0400
+
+    Version 3.2.0
+    Fixin' file timestamps (bringin'  'em back from the future)
+     (Don't know how they got there...)
+
+commit 727cf074bdc254b13946be9fdafef145e7ed7cf8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Jun 25 20:00:01 2012 -0400
+
+    Version 3.2.0
+    Added a countdown timer to session time-out.
+    Edit page: corrected & reworded notes.
+    Tweaked css for .path
+    Tweaked textarea colors
+    Tweaked css for Close buttons
+    Renamed list_files() to List_Files()
+    Fixed minor display glitch with 2nd [Close] on Edit Page when using Chrome.
+    Some rework to Edit_Page_Buttons() buttonts
+    Updated readme & _structure files
+
+commit 0ddf952156f44e5af2ffac43a324c9ff60856b8c
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 24 20:43:08 2012 -0400
+
+    Version 3.1.9.07
+    On Index page, set focus() to current folder in path/to/current/[folder]
+    In Time_Stamp_Scripts(), added option to show only time (no date).
+    Corrected a minor time bug in Time_Stamp_scripts()
+    Renamed a comple _response functions for naming consistancy.
+
+commit 59daa939c77c74938abffca605d58e7db03f6e1c
+Author: David <selfevidenttruths@mail.com>
+Date:   Sat Jun 23 17:11:18 2012 -0400
+
+    Version 3.1.9.06
+    Acutally implemented use of $SALT...
+    Added if(isset) checks to undo_magic_quotes()
+    Added check for MAX_IDLE_TIME
+    Added note on max idle time to bottom of Edit page.
+    In Cancel_Submit_Buttons(), ($params .=)  to just  ($params =)
+    Replaced session_id() in hidden <input>'s with another nonce.
+    Improved some default logic (valid, page, etc...)
+    Tweaked img info displayed with show_img().
+
+commit a0a0abff8c7efa12d6b9f56b0a7d88c6013899ab
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Jun 23 13:17:27 2012 -0400
+
+    Version 3.1.9.05
+    ini_set() some basic security & error log settings near the top.
+    Moved $SALT back to config section
+    Improved check of if editing OneFileCMS & path/filename has urlencoded characters.
+    Redid hash for "password" due to hashit() fix in 3.1.9.03
+    session_set_cookie_params()   $httponly = true;
+    session_regenerate_id(true) every page load. I've read it's a good idea - maybe.
+    Moved Login_Response() down to after Login_Page().
+    Moved Logout() down to before Login_Page().
+    Increased height of Edit page <textarea>
+    Tweaked Notes: on Edit page.
+    Updated OneFileCMS_structure.txt
+
+commit 532613fd0586e11baaccc5da1c22ccbb2154c1d5
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Jun 19 22:35:29 2012 -0400
+
+    Version 3.1.9.04
+    Added .$param2 to Admin link so [Cancel] from Hash page returns to
+     either Edit page or Index, as appropriate.
+    Removed "Visit Site" text since the favicon & URL of the site being managed are shown.
+    In hashit(), moved $salt line up, as it was after it's first use.
+    Edit_Page_response(), on $message lines, changed  =  to  .=
+    In Logout() - Missing quotes: $page = 'login'
+    Renamed Upload_File_Response() to just Upload_response()
+    Added ini_set('display_errors', 'off');
+
+commit ea431d37c287a90a9bdbaff7bac1062b95596534
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Mon Jun 18 17:49:52 2012 -0300
+
+    Error/warning messages are shown...
+
+commit e59507ce73895dd3dde48e8308c9ff280adee90f
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Jun 18 00:11:11 2012 -0400
+
+    Version 3.1.9.03
+    After x number of failed login attempts, delay next attempt.
+    Created Login_response() & cleaned up Session_Startup().
+    Created Logout() & steps for a more secure & reliable logout.
+    Tweaked some css
+    Moved basic check for $valid_pages to Get_GET().
+    Minor fix: after New File created, Edit page opens, type stuff, [Save].
+     - Was returning to Index, instead of back to Edit page.
+
+commit ae76a8e8700c82addf8c24c060917b403eb17d54
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 17 14:00:03 2012 -0400
+
+    Version 3.1.9.02
+    Using session_regenerate_id(true) if login succeeds or fails.
+    If invalid session or logout, "destroy" sessoin...
+    Check for consistant HTTP_USER_AGENT
+    Changed default session_name()
+    Moved clearstatcache from Edit_form_page() to Edit_Page().
+    Moved call to undo_magic_quotes() to Get_GET()
+    Tweaked .edit_disabled font color
+
+commit 13f9ecfc3963e1e0e1e0b49be246dcaca12c00ed
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 17 13:50:05 2012 -0400
+
+    Version 3.1.9.01
+    Improved session_startup() login logic a bit.
+    No longer storing username or hash/pass-word in $_SESSION.
+    Using $_SESSION[valid] to indicated session state (good/bad).
+    widened .login_page 10px
+    config_info spacing. Prep for coming changes.
+
+commit 8abaca41a2dbfb4dffd5dc9a158ea7bb62762e92
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Jun 14 16:20:08 2012 -0400
+
+    Version 3.1.9
+    OneFileCMS can now store a password hash instead of the plain text password itself.
+      Added Hash_Page() & _response()
+    Minor fix to Upload_Page_response()
+    Updated readme
+
+commit 03e53139346a2b6b9d8436674d4f263e8de6c125
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Jun 14 11:27:17 2012 -0400
+
+    Version 3.1.8.3
+    Moved primary php version check to area with other page logic,
+      and define a version constant in Global section.
+    Reworked the Edit Page code a bit, including:
+      Check PHP version to determine params for htmlspecialchars on Edit_Page().
+      Clearstatcache on Edit_Page()
+
+commit 4812b92ffac8a4742bc7a73db5675e1bff9e8ef8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Jun 14 11:16:30 2012 -0400
+
+    Version 3.1.8.2
+    Added default $param2 & $param3 in Get_GET().
+      Mostly for [X] box href when onclick (js) is not working.
+    In current / path / folder : spacing around / now in css, instead of in code/html.
+      Removed a couple PHP_EOL's as they slightly messed up spacing.
+    Added css for file upload <input> element.
+    Cleaned up "Reset" part of style sheet.
+
+commit dbaba0baa916337cc1a399d8a1cd21a4e2246554
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Jun 14 11:03:05 2012 -0400
+
+    Version 3.1.8.1
+    Removed Close_Button() - just using actual code inline.
+    Tweaked Edit_Page_Buttons()
+    Minor improvement to max upload file size check.
+    Minor improvement to Copy_Ren_Move_response()
+    Minor improvement & additions to how $page is verified just before <html>.
+    Red $message when editing OneFileCMS itself.
+
+commit 7615c73626c4819255744124b3616c9fcdd50192
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Jun 8 18:16:09 2012 -0400
+
+    Version 3.1.8
+    Stopped using ENT_SUBSTITUTE on Edit_Page_form <textarea>, as only available since 5.4.
+    Stopped using htmlspecialchars_decode on POST data in .._response() functions.
+     - Per PHP docs, not needed.
+    On Edit_Page_response, switched from fwrite() to file_put_contents()
+    Added function to deal with magic_quotes.
+    Added a few PHP_EOL's to help read source during trouble shooting.
+    Changed .edit_disabled b/g & font colors.
+    Added check if specialchars returns an empty string due to invalid characters.
+    Minorr typo in Copy_Ren_Mov_response() $message...
+
+commit 122218805fbdf5032ead8b8418b52e4b23c4e2c3
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue Jun 5 18:13:22 2012 -0400
+
+    Version 3.1.7
+    Updated readme & added OneFileCMS_structure.txt
+
+commit 6217a6d8d38e514d7593d2ae55253ca6a8fff6ed
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Jun 5 17:19:44 2012 -0400
+
+    Version 3.1.7
+    Made (almost) rest of code functions: session startup, get params, etc..
+    Moved all logic to just ahead of <html>
+    Copy_Ren_Move_Page(): Tweaked spacing on rendered page
+    Due to various filename style considerations, simplified ordinalize():
+       now returns:  somefile.ext.001
+       indstead of:  somefile.001.ext
+
+commit 00c8d3609bb9e67cdc4e3bd22ec1b6b9fab00072
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Jun 4 23:55:45 2012 -0400
+
+    Version 3.1.6
+    New_File_response(): Removed use of superfluous "$savefile".
+    Copy_Ren_Move_response(): Improved error check.
+    Minor tweaks to Delete_Folder_page & _response.
+    New_Folder(): improved check for a few invalid characters.
+    New_File(): added check for a few invalid characters.
+    In above ()'s, adjusted/imporoved $message's.
+
+commit 64e03a3d82167c0c683def98a34fa820ef09ac50
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Jun 4 17:49:20 2012 -0400
+
+    Version 3.1.5
+    Edit/View Page: Added file size checks.
+    Edit page was becoming the Blob, so I broke it up into three functions.
+
+commit 3882c62db23737672ac40dbafc04103dacd1800a
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 3 19:29:44 2012 -0400
+
+    Version 3.1.4
+    Added basic validation of "f" (filename) parameter.
+    Moved validation for $page up to where GET param's are got.
+    Added max file size checks to upload page & response.
+    Added error code responses to upload message.
+
+commit 34928beed8471433303a0775fe3c0d15c20565a8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 3 13:46:45 2012 -0400
+
+    Version 3.1.3
+    Some misc css cleanup & tweakin'
+    Switched from disabled <textarea> to <p.. class=edit_disabled>
+    On Edit page, filename link now opens in new window.
+    Renamed icon functions: svg_icon_new_file to svg_icon_file_new, etc...
+    Added class="icon" to <svg> icons, removed <span class="icon">...</span>
+    Simplified how icon types are selected & assigned in index list
+    Consolidated some repeated SVG code into functions and/or macros
+    Moved invalid login response to session_start section
+
+commit 2e0f7ff43f57e1b67841b794d8340cccbb86e78a
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Jun 3 11:39:01 2012 -0400
+
+    Version 3.1.2
+    Normalized/tweaked a few $messages.
+    ordinalize: changed how $message passed.
+    $EX (EXclaimation point) global var for (!) "icon" in $message.
+    When $e/i/ftypes (etc) arrays, removed spaces first.
+    Validating $_GET[f] before assigning to $filename.
+    Slightly improved Current_path_header().
+    Cleaned up show_icon($type){} - had some non-file file types...
+    Rearranged a couple Misc functions.
+
+commit 3c680927ad3cfe170d7ed6f5ef3866a328fe8a7d
+Author: David <selfevidenttruths@mail.com>
+Date:   Wed May 30 17:32:47 2012 -0400
+
+    Version 3.1.1
+    Fixed minor issue regarding htmlspecialchars and $filecontent on edit page.
+    Default behavior of htmlspecialchars has changed from my local version of php.
+    (now using ENT_SUBSTITUTE flag)
+    Also switched to file_get_contents()
+
+commit fd4aaf76c23dfc63a92ee0efaad23c473648835e
+Author: David <selfevidenttruths@mail.com>
+Date:   Tue May 29 19:02:51 2012 -0400
+
+    Version 3.1
+    Reorganized the code a bit.
+    Response code sections to New/Rename/COpy/etc.._Page posts are now functions()
+    Consolidated A few _Page & _response functions
+    Improved (slightly) file/folder name validation
+    Added MIT license text directly to top of onefilecms.php
+
+commit 3df53cf24678861dfb52a285dcce90cf21c08fe1
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon May 21 17:12:23 2012 -0400
+
+    Version 3.0
+    Minor readme update: notes about file & folder name issues,
+    and simple data/error checking.
+
+commit b6f87f4ee05ab467230efa0b3f7dc114d14ecd63
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun May 20 18:50:45 2012 -0400
+
+    Version 3.0
+    Tweekin' the readme...
+
+commit f53270f2bc25e51bb3300e0797681ce1d0d59502
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun May 20 18:10:09 2012 -0400
+
+    Version 3.0
+    Same as 2.0, with SVG icons.
+
+commit 6055e82b177a6d26bcd757f1ac7b9a52b66f9f96
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun May 20 18:08:15 2012 -0400
+
+    Version 2.0 - OneFileCMS "Lite" - No Icons
+    First true one file OneFileCMS
+
+commit a96a214f3254357a35a52821f6823cda4f7ff9f5
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun May 20 18:01:35 2012 -0400
+
+    Version 1.5.0
+    Style sheet now embedded - external .css no longer needed
+    Improved $excluded logic
+    Improve Edit Page "if editable" & "if image" logic
+
+commit 591e896cf9de6ad35c9126d2ae8e0719ad3e17db
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri May 18 15:29:28 2012 -0400
+
+    Version 1.4.0
+    Substantial code reorganization & improvements.
+
+commit f9858ec468c5b5f73b5cac38e7c7b1559deb4d62
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu May 10 17:31:17 2012 -0400
+
+    Version 1.3.0
+    Code for pages now in functions:
+      Login_Page(), Edit_Page(), Index_Page(), Upload_Page(), New_File_Page(),
+      Copy_File_Page(), Rename_File_Page(), Delete_File_Page(), Delete_Folder_Page()
+      New_Folder_Page(), Rename_Folder_Page()
+      -Overall, added a couple dozed lines to the code, but it's easier to manage.
+    Added <script> after [Save] & [Reset] buttons to disable by default
+      (Other script enables when file changes)
+      (Using js to set attribute instead of directly in <input> tag in case no js.)
+    Rearranged order of _Page functions a bit.  Because I wanted to.
+    Fixed isssue with Upload/New/Rename/Copy/etc links on root of site when i=  (blank)
+    Updated Readme.markdown
+
+commit 923e11f5648bc148fbfaa4c07ad1df5d7ce7eead
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue May 8 20:46:04 2012 -0400
+
+    Version 1.2.9
+    Copy File page, "simplified" how $slug is generated.
+    Buttons on Edit page- removed unused name attributes. Use id if needed.
+    Edit page- cleaned up a tiny bit.
+    Copy File, Delete Folder, Edit, New File, New Folder, Rename File
+      - adjusted how $varvar is determined.
+    Corrected/normalized form action url among pages.
+
+commit 58557347f1ba1469c2ad3e1bcec513b999144e66
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue May 8 20:07:01 2012 -0400
+
+    Version 1.2.8
+    Simplified variable/s for style sheet: $config_style_sheet
+    Deleted style_sheet() as superfluous
+    Added show_favicon() to confirm it exists.
+    Renamed variable values for $page & ?p=, from "folder" to "newfolder"
+    Tweaked $message line hieght.
+    Improved Copy File response code & $message.
+    Adjusted Delete File $message.
+    Adjusted Delete Folder $message.
+    Adjusted New Folder $message.
+    Adjusted Rename File $message.
+    Adjusted Rename Folder $message.
+    Adjusted Upload File $message.
+    Wrapped edit page <javascript> into a php function, moved above <html>
+
+commit 26d061694364f4e63b449bef1934bf52e2bb5918
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon May 7 13:56:22 2012 -0400
+
+    Version 1.2.7
+    Delete File   - Added error response if unlink failed.
+    Rename Folder - Simplified removal of trailing slashes
+    Rename Folder - returns to index of new folder if rename successfull, parent otherwise.
+    Upload File   - Improved error response if no file selected for upload.
+    Delete File   - Simplified how $varvar set
+    Delete Folder - Simplified how $varvar set
+    Rename FOlder - Simplified how $varvar set
+    Edit page - [Save] & [Reset] no longer disabled until <javascript> loads/runs.
+    [Rename Folder] moved to before [Delete Folder]
+    Upload File   - Improved/corrected URL for <form> action.
+
+commit 01fc3bb446653967f48fc3760b92fa2f50655741
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon May 7 03:43:44 2012 -0400
+
+    Version 1.2.6
+    Added $version after Logo
+    Added favicon img & HTTP_HOST (name of web site) after Logo
+    Tweaked wording on Delete Folder "..." ? page.
+    Removed Block View (trimming down code a bit)
+    Use (!is_empty($_GET["i"]) before Delete Folder screen.
+      (if not empty, returns to same folder, instead of parent.)
+    Improved New File response code a bit
+    Improved New Folder response code a bit
+    Tweaked Rename File $message.
+
+commit 35037853e94cea1b06526e797590fdbb86feb4d8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon May 7 02:06:00 2012 -0400
+
+    Version 1.2.5
+    Added js to list of editable file types.
+    Added Check_ipath()
+    Added is_empty($path). Will be used by Delete Folder.
+    In message_box(), changed href in <a>
+       From:   '?f='.$_GET["f"]   To:   '?'.$_SERVER['QUERY_STRING']
+    Some general code spacing in prep for upcoming changes.
+
+commit 5a634ed0bfebb1c72122a00b7b75848ebfcae1b0
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat May 5 21:48:40 2012 -0400
+
+    Version 1.2.4
+    Made function to select style sheet
+     (to prepare for a true "OneFileCMS")
+    Made function to load <script>timestamp()...</script>
+    Basic $_GET["i"] cleanup & check in session startup.
+    Improved [Cancel] button - returns to prior page.
+    Removed "error" from list of valid pages. (...it isn't.)
+    Set default page title to $_SERVER['SERVER_NAME']
+    Shorted page titles- removed $filename. Now just "Copy", or "Delete", etc.
+    Rename Folder returns to index of new folder (instead of parent).
+    Improved several $message's.
+    For several actions (new folder, new file, etc), made sure when
+      successful to return to the new/destination directory.
+
+commit 0f7373b089f1dd349e9fab313eefcb558cc10d69
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu May 3 23:21:35 2012 -0400
+
+    Minor code spacing/formatting to .css
+
+commit f4ac14c040473c177620d943b50ab9cf04686e15
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu May 3 00:19:49 2012 -0400
+
+    Version 1.2.3
+
+commit 47b9d25faa9f7764e92f014e3d8a779577cf4fae
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed May 2 23:55:50 2012 -0400
+
+    Version 1.2.3 - some minor css adjustments.
+
+commit ced554dde4e3f4abf75869fb6b9b6ea728cab01f
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed May 2 18:23:56 2012 -0400
+
+    Added .gitignore to .gitignore
+
+commit 7674472735b2943eda5aec06062fa0449743d4ce
+Author: David <selfevidenttruths@mail.com>
+Date:   Wed May 2 16:10:02 2012 -0400
+
+    Minor wording/markdown tweaks...
+
+commit 28c8fafe9df617763616c09e1afd0afde858f989
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed May 2 02:32:06 2012 -0400
+
+    Fixed check for local css. If not found, loads hosted copy.
+    A little general code cleanup/improvement.
+
+commit 6449d59b2829ff8144998097165a791d0c0d2a50
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue May 1 00:32:14 2012 -0400
+
+    Version 1.2.2
+    Images are now <a>displayed</a> on edit page instead of disabled textarea.
+    Logout page now just a message on login page.
+    Moved php misc functions to after session_start() section.
+    Changed Edit pagetitle from Edit to View/Edit...
+    In <h2> on edit page, changed Edit to File.  Some files, like images, aren't editable.
+    <script> for edit page enhancements loads only on editable files.
+
+commit 591348e34a55605f397e4723c2bb1f4e1b73bb68
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Apr 30 16:20:26 2012 -0400
+
+    Version 1.2.1 (security fix)
+
+commit 635bf87828e28fa04a4cf843b0c2404bbae3c338
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Apr 30 14:19:17 2012 -0400
+
+    NOTICE: SECURITY HOLE!
+
+commit a0443ce96f3aaad269d8cdb336d44115e3582c91
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Apr 29 21:55:07 2012 -0400
+
+    Added svg as an editable file type.
+    Some code & css improvment to Edit & Index pages.
+    Added $config_itypes (image types) in prep for future enhancement.
+
+commit 387be8ef479252ee69ad74eac1f1ab2d17585514
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 28 12:39:21 2012 -0400
+
+    Version 1.2.0
+    File list sorted with out regard to case.
+    Improved Edit page feedback indicators & actions.
+    Improved file date shown on Index & Edit pages.
+        Uses javascript to format time value from server
+        now shows in user's local time (well, on my machine it does:)
+        (May update later to show time in GMT instead.  Or not..)
+    Added dismiss "button" [X] to message box.
+    Rearranged a few styles in the .css a bit,  and some other code spacing etc.
+    />  to just >
+    In readme, changed XHTML to just HTML.
+    Now <!DOCTYPE html>
+
+commit 27c3d4389303ad790494db0497da75e5ec39d852
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 24 21:00:12 2012 -0400
+
+    Version 1.1.9
+
+commit eea0647881746b3ec1538b89bce5356bcd8aadb6
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 24 16:07:24 2012 -0400
+
+    Improved Edit page on-screen feedback of file state.
+      Using custom javascript in lieu of jquery.
+      Removed all use of & links to jquery (to help achieve a true "OneFileCMS")
+      Added reset button to revert changes, but stay on page.
+      Added .cfg file type to $config_editable.
+
+commit 636644b3b8f9c5ef0e9f17b187e414b20d520cc5
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 24 14:58:43 2012 -0400
+
+    Added/improved styles to improve keyboard tab-navigation & selection.
+
+commit 13a55dd5cb81fcd55bcdb572c57286637bb2316a
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Apr 23 19:16:50 2012 -0400
+
+    Version 1.1.8
+
+commit bbf7a9855dc2c9486d6205f03cc7329d96e5b398
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Apr 23 19:08:46 2012 -0400
+
+    Added List view/table format, and $VIEW_MODE to select List or BLOCK view.
+    Version 1.1.8
+
+commit c906d6db2d57230035ca59ca5a6cd11e42b0bad5
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Apr 22 14:52:11 2012 -0400
+
+    Improved how file type icons are determined & assigned.
+    File size is now just in bytes, not kB
+
+commit 3e44c1a28d57fa977c9d27c2073c1c136b928a4d
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Apr 22 10:03:28 2012 -0400
+
+    in .css, added a couple file type icons; added styles for table list format
+    Code to select table list format not yet in .php
+
+commit ac1d79dbf7b02dc485576b437b11d2052943618b
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Apr 22 02:49:36 2012 -0400
+
+    Switched from $config_disabled to $config_editable.  And, of course,
+    some minor code spacing/formatting in // Edit sections.
+
+commit 3d1dcec7d7b978d4df86c4d7e9e6b86800dcf5e3
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sun Apr 22 00:45:56 2012 -0400
+
+    Corrected/improved handling of local -vs- hosted css...
+    This will ultimately be for naught, once the CSS is embedded.
+    But, I just can't leave well enought alone...
+
+commit 22a3afc502bfac25ad8c5f7025a4be3ae8a1a5c8
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 21 15:36:35 2012 -0400
+
+    Changed $loadcontent to $filecontent.  Seems more intuitive.
+
+commit a3839e1bef82133c02c9cbd1c2a4104d708bd2a9
+Author: David <selfevidenttruths@mail.com>
+Date:   Fri Apr 20 16:51:05 2012 -0400
+
+    switched to generic custom icons. Also,
+    added a couple file types/ icons
+    cleared/emptied footer
+    removed cookie reference (wasn't used)
+    tweaked some styles
+    Some code (css & php) formatting
+
+commit 0bb9b952a16e88b5084e66cc0feb868d9f72980f
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Apr 20 13:47:25 2012 -0400
+
+    Added [Close] button function.  Used on Edit page. Also,
+    added / after folder names in list/ of/ folders/.
+
+commit bf2070a6385eca88092a8b071b27555cee82a7bd
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Apr 20 13:36:05 2012 -0400
+
+    Removed "Other" page. Some minor code formatting.
+
+commit adb3f40ac64a54da66aef17ad68518b25416d525
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Apr 18 01:49:42 2012 -0400
+
+    Cleared .gitignore
+
+commit f079c93ae16c5aa5ebadc1f524f3fe4c7c6b83b1
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Apr 18 01:31:16 2012 -0400
+
+    Added notes regarding future changes/improvements.
+
+commit baa3dbe5840423037d64fb9fe8da61ad7202014c
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 12 22:36:07 2012 -0400
+
+    Version 1.1.7
+
+commit 7896d929cee4d6feb8f73f0e5d3fb9e5e5dac9bd
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 12 22:24:59 2012 -0400
+
+    Added license & copyright info.
+
+commit 18c4ef715dbb7059f81e95b95d500024ae4803e6
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 12 22:11:13 2012 -0400
+
+    Improved  path/to/current/folder/  breadcrumb links.
+
+commit 81afb0a71fd37e947e3b8e74f0bd9e71db38c738
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Apr 11 01:21:08 2012 -0400
+
+    Formated/added spacing & "//comments **********"  to improve readability.
+    Fixed link for "root/path/file.ext" on Edit, Delete, Copy, Rename File pages
+      (It wasn't working after implemented "chdir(DOCUMENT_ROOT)"
+    <b>$filename</b> in $messages
+    Tweaked wording on Other page a bit.
+
+commit 78482baa1ebf807f495b11bd83e15493040cb323
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 22:28:32 2012 -0400
+
+    Added a couple Edit disabled file types. Ck for local jquery. Code formating.
+
+commit 90b4e6d26908f35f703179b361bf7499a3712d21
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 20:55:02 2012 -0400
+
+    Added config variables and improved check for local .css
+
+commit 31e5b3d6d0b09cec6be719c494d77b3f9ff7ec78
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 20:18:03 2012 -0400
+
+    Tweaked Other page,  header & nav links, footer.
+    Mostly styling changes, but some minor rewording.
+    Removed use of logo.gif. Using styled text now.
+    Message box that confirms success/failure of actions no longer fades out.
+
+commit c8c39d92e149064633c7215de5a3968182cc8fa0
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 14:08:47 2012 -0400
+
+    Tweaked login screen fields. Removed hint.
+
+commit f591686cdc8019a31e288dab1a7dea0c254080f6
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 13:51:26 2012 -0400
+
+    Removed superfluous START, FINISH, & microtime lines & footer.
+
+commit 3eefa9ae3fd53b27ee58b4c9e1afd0abd354ccde
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Tue Apr 10 00:56:11 2012 -0400
+
+    Style sheet icons now hosted on self-evident.github.com
+
+commit 59e7cb46e647fd0694ee0e88dffd7e1eb2f5bbe1
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Apr 9 13:17:13 2012 -0400
+
+    Changed where .css is hosted. Moved Upload link.
+
+commit 7c436d0be981bf11b76224454bf673d58b3749ae
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 7 09:40:37 2012 -0400
+
+    Replaced all occurences $_SERVER["SCRIPT_NAME"] of with $ONESCRIPT.
+    Makes lines a bit shorter, and is a bit easier to read.  Well, to me, at least.
+
+commit 696073a3228bf74880b0300d7f410fb889b300cf
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 7 03:44:46 2012 -0400
+
+    Added check if ?p=login and already a valid session (hit back on browser),
+    then don't display login page.
+
+commit b59388e8b408b19056828a1def6f55c7f63822a5
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 7 03:19:01 2012 -0400
+
+    Improved check for a valid session.
+
+commit 99a7749d16e99c690afe9c23468ae525d1430712
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Sat Apr 7 02:44:27 2012 -0400
+
+    Improved check for invalid pages (?p=), lines 69-77.
+    If ?p=SomethingInvalid, seemed to only load site root.
+    Now loads with ?p=index
+
+commit 7edf810aa5b8f0bac1116e27bf328aedae5117ce
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Apr 6 01:44:44 2012 -0400
+
+    Added .index_folders { min-height: 2em; }
+    In folders with no sub-folders, just keeps some space between
+    path/to/current/folder/ and list of files
+
+commit 8e3c6b4d0d785a8f0256d07b28f5cd8c50fce479
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Apr 6 01:27:10 2012 -0400
+
+    Tweaked spacing around nav links: Visit Site | Index | Log Out
+
+commit 5dbe33a644c4d52d733057246dee17378aeac9d6
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 23:50:16 2012 -0400
+
+    Added Cancel_Submit_Buttons('Action') to pages with actions such as
+    Copy, Rename, Delete, etc... Primarily adds a [Cancel] button to those pages
+
+commit dfe6dd356fb45ba70fe6807fd2c979e5a28e4b5c
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 23:34:08 2012 -0400
+
+    Added $ONESCRIPT = $_SERVER["SCRIPT_NAME"] global variable.
+    Used in Cancel_Submit_Buttons($button_label), [Cancel] button.
+    Will be used to in place of $_SERVER["SCRIPT_NAME"] thru-out later.
+
+commit 2408bdf0677d149e52c972285ad6c4e1665aec84
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 20:33:11 2012 -0400
+
+    Added function Cancel_Submit_Buttons($submit_label). But not yet used.
+
+commit c6ae3a59c26d9b3fa25f614573744f46b331bd7a
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 20:08:49 2012 -0400
+
+    Changed "Back" link to [Close] button on Edit page.
+
+commit 3eac1c354afe8536ae29138bf80dbebf4ac291d5
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 19:19:20 2012 -0400
+
+    a:hover highlighting, tweaked spacing on index_folders & front_links
+
+commit e477434ae9149c1b81bf235d22075bb73b965d72
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 18:48:18 2012 -0400
+
+    .path:hover style to hightlight links in path/to/current/index
+
+commit 65607d5d62b7bdf37a1f51d3cf824a0ca1953ac1
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 18:31:47 2012 -0400
+
+    path/breadcrumb link spaces. Moved spaces around " / " to inside path link.
+
+commit 7749e808d5b3aa2520306d9ff3a2040c4d69dd5d
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 18:09:50 2012 -0400
+
+    Implemented $config_localcss
+
+commit f8c9cee4df136e004a08ac10b6a45982aa450c0e
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Apr 5 13:29:44 2012 -0400
+
+    milli -vs- micro in footer
+
+commit ea31ca88fe4ef934be78a18e99aaae2fbb96f9ae
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 18 21:24:16 2012 -0500
+
+    1.1.6 readme
+
+commit 5fa27d8ef2f6a0ced65f13c93722fb6c121ff827
+Merge: 9e6916b b9e8715
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 18 21:11:55 2012 -0500
+
+    Merge branch 'master' of github.com:rocktronica/OneFileCMS
+    
+    Conflicts:
+    	onefilecms.php
+
+commit 9e6916b591bff6802e37dac813d9381393d3d791
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 18 21:07:51 2012 -0500
+
+    markup cleanup, css font and line-height changes
+
+commit b9e8715a264efa3d6fb34fef804815fed0131760
+Merge: 4808a7d fc0ee1f
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 18 19:06:43 2012 -0700
+
+    Merge pull request #1 from Self-Evident/master
+    
+    Breadcrumb nav
+
+commit bd3ee1a48902d7ad33f0286419fa109f79472931
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Mar 17 20:49:35 2012 -0500
+
+    old stylesheet
+
+commit fc0ee1fb8d1f424ad3dd13e71914c06cb17f059e
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Sat Mar 17 00:50:51 2012 -0500
+
+    1)Corrected "../" link.  It was only linking to first level, no matter how deep the current folder.
+    2)Modified "path/to/current/folder" so that each level is click-able directly to that folder.
+
+commit 4808a7d43ee01a69d6c3dcfdc2c2c6439dcfe861
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Mon Mar 12 19:03:26 2012 -0500
+
+    abhi attribution
+
+commit a4e36213d9fe3efccc2f6730d29fd2a05c57594b
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 11 23:40:52 2012 -0500
+
+    1.1.5 - Fixed a disallowed redirect vulnerability
+
+commit f570c8b74bd588cc563d42feb4a034bbce52ff28
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sun Mar 11 13:00:34 2012 -0500
+
+    readme update
+
+commit f265961d0646890c9efe05b93983124abc18c56e
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Feb 4 17:39:45 2012 -0600
+
+    demo link
+
+commit 0ecc6ad5090381aa04b1be007291b62985744238
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Feb 4 17:34:55 2012 -0600
+
+    readme img
+
+commit d0f7fb582bc170e47e78f483cefeca837238367c
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Feb 4 16:57:51 2012 -0600
+
+    Installation URL
+
+commit 4340be5355b702c771ef03d4b00c74d358443b38
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Feb 4 16:54:57 2012 -0600
+
+    1.1.4 and readme
+
+commit 7964b5efae56d256c2af43738ba81d97242dc937
+Author: Tommy <tommy@iamnotagoodartist.com>
+Date:   Sat Feb 4 15:58:07 2012 -0600
+
+    init commit
