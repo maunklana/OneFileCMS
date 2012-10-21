@@ -1,3 +1,17 @@
+commit 57bd95af8c875f39e847eb975a0876b23018ccc6
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Oct 21 16:00:00 2012 -0400
+
+    Version 3.4.12
+    Upload_Page(): Added option to select either automatic rename or overwrite.
+    List_Files(): Tweaked $IS_OFCMS check so blank cell is not highlighted when on-hover.
+    Upload_response(): Added cooresponding code to overwrite (if option selected).
+    New language strings:
+      $_['upload_txt_05'] = 'For uploaded files that already exist: ';
+      $_['upload_txt_06'] = 'Rename (to filename.ext.001 etc...)';
+      $_['upload_txt_07'] = 'Overwrite';
+      $_['upload_msg_07'] = 'A pre-existing file was overwritten.';
+
 commit 8b5e60788855bd6613d22a4cd565b20a9a59a1ea
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Tue Oct 16 13:00:00 2012 -0400
