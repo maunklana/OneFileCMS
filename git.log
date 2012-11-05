@@ -1,3 +1,41 @@
+commit 9eb7640cedfb4707ac6d4f227d7060fb8d5c41af
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Nov 5 01:30:00 2012 -0500
+
+    Version 3.4.13
+    Setup section: Added validation of $MAIN_WIDTH & $WIDE_VIEW_WIDTH.
+    In a few function global declarations, removed references to unused variables.
+    Update_Recent_Pages(): if unset, init to current $page instead of "".
+    $PWUN_RULES: Swapped order of $_[pw_txt_08] and $_[pw_txt_10].
+    List_Backup(): Made [Delete] button visually consistant with Index page [Delete] button.
+    List_Backup(): hte() & urldecode() of file name. Some incidental code respacing...
+    Change_PWUN_Page(): removed $config_key (no longer used), and name attribute from <form>
+    Update_config(): Switched from file_get_contents() to file(), & improved $message's a bit.
+    Change_PWUN_response(): A few minor improvements.
+    LOgout(): Added $_SESSION = array();
+    Index_Page(): added hsc() to a couple places where needed.
+    Index_Page():<table> to <div>'s for button layout (not really any better)
+    Upload_Page(): Improved logic to set input width.
+    Upload_Page(): Added hsc() to a few $_[] strings.
+    Delete_response(): If came from Admin page, return there.
+    Some incidental style sheet tweaks.
+
+commit b4356af827ff4cce4ed032c2d07f75ea39125c23
+Merge: e111ad3 d80281e
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Thu Oct 25 14:09:28 2012 -0700
+
+    Merge pull request #13 from symsec/master
+    
+    Dutch translation courtesy of symsec/supersym.
+
+commit e111ad319e562e8621727466ddaa9984e9b112cd
+Author: David <selfevidenttruths@mail.com>
+Date:   Sun Oct 21 16:30:00 2012 -0400
+
+    Version 3.4.12
+    Updated Readme
+
 commit 57bd95af8c875f39e847eb975a0876b23018ccc6
 Author: David <selfevidenttruths@mail.com>
 Date:   Sun Oct 21 16:00:00 2012 -0400
@@ -11,6 +49,12 @@ Date:   Sun Oct 21 16:00:00 2012 -0400
       $_['upload_txt_06'] = 'Rename (to filename.ext.001 etc...)';
       $_['upload_txt_07'] = 'Overwrite';
       $_['upload_msg_07'] = 'A pre-existing file was overwritten.';
+
+commit d80281eebcb74614a6e0d7afe3d1a33bd219f858
+Author: supersymmetry <maildumpert@gmail.com>
+Date:   Fri Oct 19 18:31:50 2012 +0200
+
+    translated OneFileCMS to Dutch
 
 commit 8b5e60788855bd6613d22a4cd565b20a9a59a1ea
 Author: Self-Evident <selfevidenttruths@mail.com>
