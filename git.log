@@ -1,3 +1,18 @@
+commit c935b7d5af9aab3503afd7c64de7c3813cdf3b40
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Nov 12 13:20:00 2012 -0500
+
+    Version 3.4.14
+    Russion language file courtesy of github.com/zaykin
+    Courtesy of github.com/Fuchur777, Added $ACCESS_ROOT config value:
+        Option to restrict OneFileCMS to a specific folder (and it's sub-folders).
+    hashit(): minor logic improvement.
+    URLencode_path(): minor improvement.
+    Cancel_Submit_Buttons(): added id attrib to submit button.
+    Upload_Page(): Fixed issue if using PHP v3.2.12 or earlier.
+    Set_Input_width(): Improved logic.
+    urldecode($WEB_ROOT) when displayed (when not part of an href value etc).
+
 commit 9eb7640cedfb4707ac6d4f227d7060fb8d5c41af
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Mon Nov 5 01:30:00 2012 -0500
