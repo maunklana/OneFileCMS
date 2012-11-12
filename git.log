@@ -1,11 +1,11 @@
-commit c935b7d5af9aab3503afd7c64de7c3813cdf3b40
-Author: Self-Evident <selfevidenttruths@mail.com>
-Date:   Mon Nov 12 13:20:00 2012 -0500
+commit e2396713e7cc79a7cebc029ad88802eb3baf7fa9
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Nov 12 15:50:00 2012 -0500
 
     Version 3.4.14
     Russion language file courtesy of github.com/zaykin
     Courtesy of github.com/Fuchur777, Added $ACCESS_ROOT config value:
-        Option to restrict OneFileCMS to a specific folder (and it's sub-folders).
+    Option to restrict OneFileCMS to a specific folder (and it's sub-folders).
     hashit(): minor logic improvement.
     URLencode_path(): minor improvement.
     Cancel_Submit_Buttons(): added id attrib to submit button.
