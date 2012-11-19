@@ -1,3 +1,29 @@
+commit b74ca14b4324c0cb6d8d78730b27ad7e4e2ef3ac
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Mon Nov 19 01:00:00 2012 -0500
+
+    Version 3.4.15
+    Added BSD license inline for js sha hash code.
+    Added js_hash_scripts() for client side p/w hashing.
+    System Values & Setup: added $PRE_ITERATIONS used for the "pre-hash".
+    hashit(): added a "pre-hash", and a parameter to trigger or skip it.
+    Cancel_Submit_Buttons(): changed id of submit button from "submit" to "submitty".
+    Hash_response(): Use parameter do the "pre-hash" server-side.
+    Change_PWUN_Page(): use js_hash_scripts() for the "pre-hash".
+    Login_Page():  use js_hash_scripts() for the "pre-hash".
+    Index_Page(): Some code cleanup to the Move, Copy, & Delete buttons.
+    common_scripts(): added js function trim()
+    Added event_scripts(): handles events on pages with hashing, and some validation.
+    Upload_response(): If nothing selected, just reload Upload_Page() with no msg.
+    New_response(): If no new name provided, just reload New_Page() with no msg.
+    Some css tweeks - :active is now slightly darker than :hover or :focus.
+    New language strings:
+      $_['Working'] = 'Working - please wait...';
+      $_['change_pw_07'] = 'All fields are required.';
+    Removed language strings:
+      $_['upload_msg_01'] = 'No file selected for upload.';
+      $_['new_file_msg_03'] = 'Not created - no name given';
+
 commit e2396713e7cc79a7cebc029ad88802eb3baf7fa9
 Author: David <selfevidenttruths@mail.com>
 Date:   Mon Nov 12 15:50:00 2012 -0500
