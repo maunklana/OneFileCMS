@@ -1,3 +1,19 @@
+commit 6bdc0d0a394895f94056851f3621270540363ccd
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Nov 23 10:30:00 2012 -0500
+
+    Version 3.4.16
+    Edit_Page_buttons(): Added icons to [Move], [Copy], & [Delete] <buttons>
+    Edit_Page_buttons(): Removed second [Close] button.
+    Added markdown to editable file types.
+    Cancel_Submit_Buttons(): changed <input>'s to <button>'s
+    Edit_Page_buttons_top(): changed <input>'s to <button>'s
+    Admin_Page(): changed <input>'s to <button>'s
+    List_File(): Seperated & streamlined code a bit.
+    Edit_Page_scripts(): tweaked a couple event affected styles.
+    Changed $_['reset'] from 'Reset - loose changes' to just 'Reset'
+     (and similarly in each langauge file)
+
 commit b74ca14b4324c0cb6d8d78730b27ad7e4e2ef3ac
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Mon Nov 19 01:00:00 2012 -0500
