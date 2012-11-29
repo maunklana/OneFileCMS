@@ -1,3 +1,30 @@
+commit 1604ac49c7be5821d0ae14bc5a807d75179bc610
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Nov 29 12:05:00 2012 -0500
+
+    Version 3.4.17
+    Added ability to use TinyMCE & CKEditor...
+    Added $WYSIWYG_PLUGIN config variable (path to a js file to includ() ).
+    Added $WYSIWYG_SOURCE for use in the file $WYSIWYG_PLUGIN.
+    System values & setup: Validate $WYSIWYG_PLUGIN & $WYSIWYG_SOURCE.
+    Admin_Page(): consolidated some <?php echo... ?>'s (actually did this last commit)
+    Login_response(): consolidated password validation.
+    Edit_Page_buttons_top(): If using plugin, don't show [Wide View],
+    Edit_Page_buttons_top(): If using plugin, show [Edit WYSIWYG/HTML] toggle button.
+    Edit_Page_buttons(): If using plugin, make sure [Save] & [Reset] are active.
+    Edit_Page_buttons(): Changed hardcoded 'Save' to its $_[] string.
+    Edit_Page_form(): If using plugin, don't load Edit_Page_scripts().
+    Edit_Page_form(): Added call to Edit_Page_buttons_top()
+    Edit_Page_form(): Changed <textarea> id to "file_editor".
+    Edit_Page(): Set $WYSIWYG_VALID false if not needed.
+    Edit_Page(): Removed call to Edit_Page_buttons_top().
+    Upload_Page(): Some html & css tweakin'.
+    Edit_Page_scripts(): Cooresponding "file_editor" id changes,
+    Edit_Page_scripts(): Changed a few .value's to .innerHTML, due to changes of some <input>'s to <button>'s.
+    Edit_Page_scripts(): Reset_File() returns false if reset cancelled.
+    Main logic section: Set $EDIT_MODE.
+    End of file: include $WYSIWYG_PLUGIN.
+
 commit 6bdc0d0a394895f94056851f3621270540363ccd
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Fri Nov 23 10:30:00 2012 -0500
