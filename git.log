@@ -1,3 +1,25 @@
+commit 0040a2aeb7efe6347a9cebc37c1ede3579e5b8ac
+Author: David <selfevidenttruths@mail.com>
+Date:   Mon Dec 3 14:31:47 2012 -0500
+
+    Version 3.4.18
+    -(partly) Fixes issue: wysiwyg editors not working unlesss onefilecms in root folder.
+    Moved chdir() from Session_Startup() to System setup section.
+    Rearranged a few $VARS in the System setup section.
+    show_image(): Added $ACCESS_ROOT so image would show.
+    Edit_Page(): Added $ACCESS_ROOT to fix filename link.
+    Added ob_start() just prior to output of page contents
+      - saves 1-40 milliseconds per page load!
+    (Over the course of my life, I calculated that I will save enough time to think:
+     "Wow - what a waste of time that was...") (...the calculating, not the life...)
+    (Also, I'm a slow thinker - so you may get more thoughts out of it than I will...)
+
+commit e1920877d1db5d04032c4afdd7362ab3451ea162
+Author: Self-Evident <SelfEvidentTruths@mail.com>
+Date:   Sun Dec 2 18:37:01 2012 -0500
+
+    Update readme.markdown
+
 commit cfa3f65f5a01eec10401d6acd6178cd2b5b00541
 Author: David <selfevidenttruths@mail.com>
 Date:   Thu Nov 29 17:30:00 2012 -0500

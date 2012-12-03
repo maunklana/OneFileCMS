@@ -1,5 +1,13 @@
 <h1>OneFileCMS Change Log</h1>
 
+<h3>v3.4.18 (2012-12-03)</h3>
+
+<p>Of course, everything comes with a price (exacerbated by my apparent lack of testing...)</p>
+
+<ul>
+<li>Anyway, the current release partly fixes an issue when trying to use a wysiwyg editor with onefilecms.php installed in a sub-folder of a site.  The issue is - it didn't work.  Now it does - mostly. However, there is still an issue using wysiwyg editors if the $ACCESS_ROOT variable is set to anything but blank (root).</li>
+</ul>
+
 <h3>v3.4.17 (2012-11-29)</h3>
 
 <ul>
@@ -32,10 +40,9 @@ Due to popular demand (ie: it has been requested more than once), WYSYWIG editor
 
 <ul>
 <li><p>Added client-side hashing of passwords. 
-This is primarily a benefit for the user, as it does not really add any security to the server side application that uses it (such as OneFileCMS).  The reason is that this "pre-hash" simply becomes the actual password as far as the server is concerned, and is just as vulnerable to exposure while in transit. However, it does help to protect the user's plain-text password, which may be used elsewhere.  </p>
-
-<p>While a slightly different solution has been used, I want to thank <a href="http://github.com/fermuch">fermuch</a> for the original idea and solution suggestion.  That solution was not used was due to its utilization of external files, and a weak hashing algorithm (sha1), and due to my (limited) understanding of the usefullness (or lack thereof) of client side hashing - at the time.  Well, after quite a bit of additional reading and consideration, that understanding has evolved a bit, and is summerized above.</p></li>
+This is primarily a benefit for the user, as it does not really add any security to the server side application that uses it (such as OneFileCMS).  The reason is that this "pre-hash" simply becomes the actual password as far as the server is concerned, and is just as vulnerable to exposure while in transit. However, it does help to protect the user's plain-text password, which may be used elsewhere.  </p></li>
 <li><p>Also added a "please wait..." message while computing the client-side hashes - primarily for IE versions &lt; 9, which are MUCH slower than FF or Chrome (by a factor of 37 or more).  Subsequently, the number of iterations for the client-side hashing is quite low (compared to the server side), but still causes a 1 - 2 second delay on the login screen, and a 3 - 6 second delay on the Change Password screen.  On FF and Chrome, however, the delay is much shorter, almost unnoticable.</p></li>
+<li><p>I want to thank <a href="http://github.com/fermuch">fermuch</a> for the client-side hashing suggestion.  While a somewhat different approach was ultlimately employed, his original solution provided the insight needed to approach the idea in general.</p></li>
 </ul>
 
 <h3>3.4.14 (2012-11-12)</h3>
