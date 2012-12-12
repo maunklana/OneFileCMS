@@ -1,3 +1,21 @@
+commit d5df8b6a46ed56e2176f6c724d6f500e8349f528
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Wed Dec 12 02:00:00 2012 -0500
+
+    Version 3.4.19
+    Removed $ACCESS_ROOT - for now, until a few issues can be resolved.
+    Removed $WYSIWYG_SOURCE - info now simply provided directly in <editor>_init.php
+    Turned System setup section into the System_Setup() function.
+    Added a couple of types to $config_etypes, _ftypes, & _fclass.
+    Stopped URL encoding $WEB_ROOT - it's not used in URL's, only used for display.
+    Tweaked a couple $ONESCRIPT & $CONFIG_ system vars.
+    Created Validate_params(); Seperated out some checks from Get_GET().
+    Verify_Page_Conditions(): Moved check if editing OFCMS to Validate_params().
+    Page_Header(): php echo everything, instead of jumping in & out of <?php ?>.
+    Main logic: Moved $Editing_OFCMS to Validate_params();
+    Added linked "(on php N.n.n)" to open phpinfo() in a new window. ?p=serverinfo.
+    Minor change to $_['edit_note_01a']
+
 commit 0040a2aeb7efe6347a9cebc37c1ede3579e5b8ac
 Author: David <selfevidenttruths@mail.com>
 Date:   Mon Dec 3 14:31:47 2012 -0500
