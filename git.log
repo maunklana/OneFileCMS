@@ -1,3 +1,33 @@
+commit 4478eb23e51c87bcf51237f0b38d7055e19d7774
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Thu Dec 20 14:20:00 2012 -0500
+
+    Version 3.4.20
+    Added $ACCESS_ROOT feature. Functions affected: System_Setup(), Valid_Path(),
+      Current_Path_Header(), Set_Input_width(), CRM_Page(), CRM_response(),
+      MCD_Page(), MCD_response(), Respond_to_POST(), Main logic section.
+    Error reporting is now on by default.
+    Rearranged order of some CONFIGURABLE INFO variables. (It's the OCD in me...)
+    System_Setup(): Reorganized, cleaned up Global declarations,
+      moved validation and include() of external lang file to here,
+      Improved validation and setup of $config_file,
+    Renamed Error_reporting_and_early_output() to Error_reporting_status_and_early_output()
+    Put strip_array() back inside undo_magic_quotes().
+    Change_PWUN_response(): improved check for $config_file .
+    Removed a couple superfluous Global file references.
+    Upload_Page() & _response(): Switched from <input hidden> to $ipath for destination.
+    Init_Macros(): moved it's call back to after $_GET params are validated.
+    phpinfo() Link around php version only when session is valid.
+    Added $_['Invalid_path'] = 'Invalid path';
+    Restructured the repo.
+
+commit 914b7a4721c21c37c72b73cf3ebf0fbd558f969a
+Author: David <selfevidenttruths@mail.com>
+Date:   Sat Dec 15 17:00:00 2012 -0500
+
+    Version 3.4.19
+    Minor update to prior commit.
+
 commit d5df8b6a46ed56e2176f6c724d6f500e8349f528
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Wed Dec 12 02:00:00 2012 -0500
