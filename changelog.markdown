@@ -1,8 +1,23 @@
 # OneFileCMS Change Log
 
+### (January 19, 2013)
+
+- Just some minor updates/wording changes to the readme & plugin/*.init files.
+
+### v3.4.20 (December 19, 2012)
+
+- The $ACCESS_ROOT option has been reimplemented and is now fully functional\*.  This option limits access to a specified folder (and it's sub-folders).  To use, just specify a valid path relative to the root of the website (no leading slash).  
+(*Well, as best as I can tell...)
+
+- All OneFileCMS configuration variables that reference external files ($CONFIG\_file, $LANGUAGE\_FILE, $WYSIWYG\_PLUGIN) must be specified in one of two ways:  
+	1. Relative to the root of the website - with NO leading slash:  "some/path/from/webroot/somefile.php"  
+	2. Absolute to the file system - WITH a leading slash:  "/some/path/from/system/root/somefile.php"  
+	(On Windows, the drive letter may also be used, but it is not required if all is on same drive.)
+
 ### v3.4.19 (2012-12-12)
 
-- Slightly adjusted how wysiwyg plugins are implemented - removed $WYSIWIG_SOURCE config variable.
+- Slightly adjusted how wysiwyg plugins are implemented - removed $WYSIWIG\_SOURCE config variable.  
+ (It's value is now specified directly in the "init" file specified by $WYSIWYG\_PLUGIN.)
 
 - Two steps forward, one step back...  
 	Just for now - removed the $ACCESS_ROOT option.  I was coding in circles and getting no where while trying to reconcile various issues:  
@@ -17,11 +32,9 @@
 	
 	A solution is in the works, but I'm going to take some time to make sure no new problems are introduced by the eventual fix. (hahaha...) It will probably end up being simple, but it's not yet...
 
-- Just a general note on security: due to the fundamental structure of OneFileCMS - primarily that it's one file, and that there is no seperate database for authentication - there are certain inherent security limitations that need to be kept in mind:  
+- Just a general note on security: due to the fundamental structure of OneFileCMS - primarily that it's one file, and that there is no seperate database for authentication - there are certain inherent security limitations that should be kept in mind:  
 	- The first is that all OneFileCMS users are "admins", with the ability to upload and edit files with any type of code.
-	- Next, as a direct consequence of the prior point, is that any restriction imposed by some potential feature, such as the $ACCESS_ROOT option that limited access to a specific folder, is only - at most - a guard against accidental access and modification of files outside of the "accessible" folder.   This is not to say that such features are not useful, this is simply to provide a realistic expectation of security - that OneFileCMS should only be used with trusted users.
-
-As a final note - some additional features are being considered for the future, but the current issues noted above need to be resolved first.
+	- Next, as a direct consequence of the prior point, is that any restriction imposed by some potential feature, such as the $ACCESS_ROOT option that limited access to a specific folder, is only - at most - a guard against accidental access and modification of files outside of the "accessible" folder.   This is not to say that such features are not useful - this is simply meant to provide a realistic expectation of security, and that OneFileCMS should only be used with trusted users.
 
 ### v3.4.18 (2012-12-03)
 

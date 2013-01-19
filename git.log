@@ -1,3 +1,16 @@
+commit b7e477ed0899ef51535d7141008fbcce7f5cc15f
+Author: Self-Evident <selfevidenttruths@mail.com>
+Date:   Fri Jan 18 23:21:00 2013 -0500
+
+    Updated readme & minor wording changes to plugin init files.
+
+commit 957c919845457f4ff8b1eb395f0502c5e72bb260
+Author: David <selfevidenttruths@mail.com>
+Date:   Thu Dec 20 17:18:00 2012 -0500
+
+    Version 3.4.20
+    Moved readme back to root of repo so shows up on GitHub.
+
 commit 4478eb23e51c87bcf51237f0b38d7055e19d7774
 Author: Self-Evident <selfevidenttruths@mail.com>
 Date:   Thu Dec 20 14:20:00 2012 -0500
